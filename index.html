@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sociedade do Malte — Livro de Degustações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14100a;--ink-2:#1f1810;--panel:#ece0c4;--panel-edge:#d8c79f;
+    --parch-ink:#3a2c1a;--parch-dim:#7a674a;--gold:#caa64b;--gold-bright:#f1d57e;
+    --amber:#b06a2c;--shire:#647344;--oxblood:#8a2f2a;--line:rgba(202,166,75,.24);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(120% 60% at 50% -10%, rgba(202,166,75,.10), transparent 60%),
+      radial-gradient(80% 50% at 50% 110%, rgba(100,115,68,.10), transparent 60%),
+      #14100a;
+    color:var(--panel);font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
+    min-height:100vh;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px 80px;}
+
+  header.mast{text-align:center;padding:38px 0 22px;position:relative;}
+  .crest{width:70px;height:70px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 35%, rgba(241,213,126,.18), transparent 70%);
+    box-shadow:0 0 26px rgba(202,166,75,.28), inset 0 0 18px rgba(202,166,75,.18);}
+  .crest span{font-size:30px;color:var(--gold-bright);line-height:1;}
+  .mast h1{font-family:"Cinzel Decorative",serif;font-weight:900;color:var(--gold-bright);
+    font-size:clamp(28px,7vw,42px);margin:0;letter-spacing:.02em;text-shadow:0 0 22px rgba(202,166,75,.25);}
+  .mast .creed{font-style:italic;max-width:30ch;margin:10px auto 0;font-size:16px;color:#bfae8a;}
+  .mast .meet{margin-top:14px;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:8px 0 0;}
+
+  .stats{display:flex;gap:10px;margin:20px 0 8px;}
+  .stat{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px 6px;background:rgba(31,24,16,.55);}
+  .stat b{display:block;font-family:"Cinzel",serif;font-size:24px;color:var(--gold-bright);}
+  .stat small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--parch-dim);margin-top:2px;}
+
+  nav.tabs{display:flex;gap:4px;margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;padding:4px;background:rgba(31,24,16,.6);}
+  nav.tabs button{flex:1;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;
+    letter-spacing:.06em;color:var(--parch-dim);padding:10px 4px;border-radius:7px;transition:.18s;}
+  nav.tabs button.active{background:linear-gradient(180deg,#2c2114,#221910);color:var(--gold-bright);box-shadow:inset 0 0 0 1px var(--line);}
+  nav.tabs button:hover{color:var(--gold);}
+
+  .view{display:none;}
+  .view.active{display:block;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  .card{background:var(--panel);color:var(--parch-ink);border-radius:10px;padding:18px 18px 20px;margin-bottom:14px;
+    border:1px solid var(--panel-edge);box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 60px rgba(122,103,74,.12);}
+  .eyebrow{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:0 0 12px;}
+  h2.sec{font-family:"Cinzel",serif;color:var(--gold-bright);font-size:20px;margin:0 0 4px;font-weight:600;}
+  .sec-sub{color:#bfae8a;font-size:15px;margin:0 0 16px;font-style:italic;}
+
+  label{display:block;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--parch-dim);margin:14px 0 5px;}
+  input[type=text], select, textarea{width:100%;background:#fbf5e6;border:1px solid var(--panel-edge);
+    border-bottom:2px solid var(--amber);border-radius:6px;color:var(--parch-ink);font-family:"EB Garamond",serif;font-size:17px;padding:10px 12px;}
+  textarea{min-height:64px;resize:vertical;}
+  input:focus, select:focus, textarea:focus{outline:none;border-bottom-color:var(--shire);box-shadow:0 0 0 3px rgba(100,115,68,.18);}
+  .row{display:flex;gap:12px;}
+  .row > div{flex:1;}
+
+  .score-wrap{margin-top:14px;}
+  .score-head{display:flex;align-items:baseline;justify-content:space-between;}
+  .score-val{font-family:"Cinzel",serif;font-size:30px;color:var(--amber);}
+  .score-val small{font-size:15px;color:var(--parch-dim);}
+  input[type=range]{width:100%;accent-color:var(--amber);height:30px;}
+  .rings{font-size:20px;letter-spacing:3px;margin-top:2px;color:var(--gold);}
+  .rings .off{color:rgba(58,44,26,.22);}
+
+  .btn{width:100%;margin-top:18px;cursor:pointer;border:none;border-radius:8px;font-family:"Cinzel",serif;
+    font-size:14px;letter-spacing:.08em;padding:13px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    color:#2a1f0c;font-weight:600;box-shadow:0 4px 16px rgba(202,166,75,.3);transition:.15s;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn:disabled{opacity:.55;cursor:wait;transform:none;}
+
+  .rank{display:flex;align-items:center;gap:14px;padding:14px 8px;border-bottom:1px solid rgba(122,103,74,.2);}
+  .rank:last-child{border-bottom:none;}
+  .rank .pos{font-family:"Cinzel",serif;font-size:20px;width:30px;text-align:center;color:var(--parch-dim);flex:none;}
+  .rank .body{flex:1;min-width:0;}
+  .rank .name{font-family:"Cinzel",serif;font-size:17px;color:var(--parch-ink);font-weight:600;}
+  .rank .meta{font-size:14px;color:var(--parch-dim);font-style:italic;}
+  .rank .avg{font-family:"Cinzel",serif;font-size:22px;color:var(--amber);flex:none;text-align:right;}
+  .rank .avg small{display:block;font-size:10px;letter-spacing:.1em;color:var(--parch-dim);font-style:normal;}
+  .rank.gold{background:radial-gradient(120% 100% at 0% 0%, rgba(241,213,126,.35), transparent 70%);
+    border:1px solid var(--gold);border-radius:10px;margin:2px 0;box-shadow:0 0 22px rgba(202,166,75,.35);}
+  .rank.gold .pos{color:var(--amber);}
+  .rank .ring-medal{font-size:20px;}
+
+  .filters{display:flex;gap:10px;margin-bottom:14px;}
+  .entry{padding:12px 4px;border-bottom:1px solid rgba(122,103,74,.2);display:flex;gap:12px;align-items:flex-start;}
+  .entry:last-child{border-bottom:none;}
+  .entry .who{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.06em;color:#fff;background:var(--shire);padding:4px 9px;border-radius:20px;flex:none;}
+  .entry .det{flex:1;min-width:0;}
+  .entry .bn{font-weight:600;color:var(--parch-ink);}
+  .entry .bm{font-size:14px;color:var(--parch-dim);font-style:italic;}
+  .entry .note{font-size:15px;color:var(--parch-ink);margin-top:3px;}
+  .entry .en{font-family:"Cinzel",serif;color:var(--amber);font-size:17px;flex:none;}
+  .entry .x, .member .x{background:none;border:none;color:var(--oxblood);cursor:pointer;font-size:16px;padding:2px 4px;flex:none;}
+
+  .member{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;border-bottom:1px solid rgba(122,103,74,.2);}
+  .member:last-child{border-bottom:none;}
+  .member .mn{font-size:17px;color:var(--parch-ink);}
+  .member .mc{font-size:13px;color:var(--parch-dim);font-style:italic;}
+
+  .empty{text-align:center;color:var(--parch-dim);font-style:italic;padding:26px 10px;}
+  footer{text-align:center;color:#6b5b40;font-size:13px;font-style:italic;margin-top:24px;}
+
+  /* estado de carregamento / erro */
+  #toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--oxblood);color:#fff;
+    padding:11px 18px;border-radius:8px;font-size:15px;max-width:90vw;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.5);
+    opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+  #toast.show{opacity:1;}
+  .loading{text-align:center;color:var(--gold);font-family:"Cinzel",serif;letter-spacing:.1em;padding:40px 10px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="crest"><span>&#9737;</span></div>
+    <h1>Sociedade do Malte</h1>
+    <p class="creed">"Uma confraria para a todos reunir, e na taça de malte uni-los."</p>
+    <p class="meet">Confraria &middot; Encontros à lua cheia de cada mês</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b id="st-rotulos">·</b><small>Rótulos</small></div>
+    <div class="stat"><b id="st-deg">·</b><small>Degustações</small></div>
+    <div class="stat"><b id="st-membros">·</b><small>Confrades</small></div>
+  </div>
+
+  <nav class="tabs">
+    <button data-tab="ranking" class="active">Ranking</button>
+    <button data-tab="registrar">Registrar</button>
+    <button data-tab="historico">Histórico</button>
+    <button data-tab="membros">Confrades</button>
+  </nav>
+
+  <section class="view active" id="ranking">
+    <div class="card">
+      <p class="eyebrow">O Tomo dos Grandes Rótulos</p>
+      <h2 class="sec">Ranking da confraria</h2>
+      <p class="sec-sub">Ordenado pela média das notas de todos os confrades. O primeiro porta o Anel.</p>
+      <div id="rank-list"><div class="loading">Abrindo o tomo&hellip;</div></div>
+    </div>
+  </section>
+
+  <section class="view" id="registrar">
+    <div class="card">
+      <p class="eyebrow">Inscrever no Livro</p>
+      <h2 class="sec">Registrar degustação</h2>
+      <p class="sec-sub">Quem provou, o que provou e a nota que concedeu.</p>
+      <label for="f-membro">Confrade</label>
+      <select id="f-membro"></select>
+      <label for="f-beer">Rótulo da cerveja</label>
+      <input type="text" id="f-beer" placeholder="ex.: Stout do Condado">
+      <div class="row">
+        <div><label for="f-brewery">Cervejaria</label><input type="text" id="f-brewery" placeholder="ex.: Dragão Verde"></div>
+        <div><label for="f-style">Estilo</label><input type="text" id="f-style" placeholder="ex.: Imperial Stout"></div>
+      </div>
+      <div class="score-wrap">
+        <div class="score-head"><label style="margin:0">Nota</label>
+          <div class="score-val"><span id="f-score-val">7.0</span><small>/10</small></div></div>
+        <input type="range" id="f-score" min="0" max="10" step="0.5" value="7">
+        <div class="rings" id="f-rings"></div>
+      </div>
+      <label for="f-notes">Anotações de prova (opcional)</label>
+      <textarea id="f-notes" placeholder="Aroma, corpo, amargor, o que conversaram à mesa..."></textarea>
+      <button class="btn" id="f-save">Inscrever no livro</button>
+    </div>
+  </section>
+
+  <section class="view" id="historico">
+    <div class="card">
+      <p class="eyebrow">As Crônicas</p>
+      <h2 class="sec">Histórico de degustações</h2>
+      <p class="sec-sub">Filtre por confrade ou por rótulo para reviver cada gole.</p>
+      <div class="filters">
+        <div style="flex:1"><select id="filt-membro"></select></div>
+        <div style="flex:1"><select id="filt-beer"></select></div>
+      </div>
+      <div id="hist-list"></div>
+    </div>
+  </section>
+
+  <section class="view" id="membros">
+    <div class="card">
+      <p class="eyebrow">A Sociedade</p>
+      <h2 class="sec">Confrades</h2>
+      <p class="sec-sub">Os membros que partilham a mesa.</p>
+      <label for="m-name">Adicionar confrade</label>
+      <div class="row">
+        <div style="flex:2"><input type="text" id="m-name" placeholder="Nome do confrade"></div>
+        <div style="flex:1"><button class="btn" style="margin-top:0" id="m-add">Incluir</button></div>
+      </div>
+      <div id="member-list" style="margin-top:8px"></div>
+    </div>
+  </section>
+
+  <footer>Livro de Degustações &middot; histórico compartilhado da confraria</footer>
+</div>
+<div id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  var data = { members:[], tastings:[] };
+
+  // ---------- API ----------
+  async function api(method, body){
+    var res = await fetch('/api/data', {
+      method: method,
+      headers: method==='POST' ? {'Content-Type':'application/json'} : undefined,
+      body: body ? JSON.stringify(body) : undefined
+    });
+    var json = await res.json().catch(function(){ return {}; });
+    if(!res.ok){ throw new Error(json.error || 'Falha na comunicação com o servidor.'); }
+    return json;
+  }
+  async function refresh(){
+    data = await api('GET');
+    renderAll();
+  }
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(toast._t); toast._t=setTimeout(function(){ t.classList.remove('show'); }, 3800);
+  }
+
+  function memberName(id){ var m=data.members.find(function(x){return x.id===id;}); return m?m.name:'—'; }
+  function beerKey(t){ return (t.beer+'|'+(t.brewery||'')).toLowerCase().trim(); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function rings(score){ var f=Math.round(score/2),s='';
+    for(var i=0;i<5;i++){ s+= i<f ? '&#9737;' : "<span class='off'>&#9737;</span>"; } return s; }
+
+  // ---------- Render ----------
+  function renderStats(){
+    var keys={}; data.tastings.forEach(function(t){ keys[beerKey(t)]=1; });
+    document.getElementById('st-rotulos').textContent=Object.keys(keys).length;
+    document.getElementById('st-deg').textContent=data.tastings.length;
+    document.getElementById('st-membros').textContent=data.members.length;
+  }
+  function renderRanking(){
+    var g={}; data.tastings.forEach(function(t){ var k=beerKey(t);
+      if(!g[k]) g[k]={beer:t.beer,brewery:t.brewery,style:t.style,sum:0,n:0};
+      g[k].sum+=Number(t.score); g[k].n++; });
+    var arr=Object.keys(g).map(function(k){ var x=g[k]; x.avg=x.sum/x.n; return x; })
+      .sort(function(a,b){ return b.avg-a.avg || b.n-a.n; });
+    var el=document.getElementById('rank-list');
+    if(arr.length===0){ el.innerHTML="<p class='empty'>Nenhum rótulo no livro ainda. Registre a primeira degustação.</p>"; return; }
+    el.innerHTML=arr.map(function(x,i){
+      var medal=i===0?'&#9737;':(i+1);
+      var meta=[x.brewery,x.style].filter(Boolean).join(' &middot; ');
+      return "<div class='rank"+(i===0?' gold':'')+"'>"+
+        "<div class='pos'>"+(i===0?"<span class='ring-medal'>"+medal+"</span>":medal)+"</div>"+
+        "<div class='body'><div class='name'>"+esc(x.beer)+"</div><div class='meta'>"+(meta||'—')+" &middot; "+x.n+" "+(x.n===1?'voto':'votos')+"</div></div>"+
+        "<div class='avg'>"+x.avg.toFixed(1)+"<small>MÉDIA /10</small></div></div>";
+    }).join('');
+  }
+  function renderHistFilters(){
+    var fm=document.getElementById('filt-membro'), cur=fm.value;
+    fm.innerHTML="<option value=''>Todos os confrades</option>"+data.members.map(function(m){
+      return "<option value='"+m.id+"'>"+esc(m.name)+"</option>"; }).join('');
+    fm.value=cur;
+    var beers={}; data.tastings.forEach(function(t){ beers[t.beer]=1; });
+    var fb=document.getElementById('filt-beer'), curb=fb.value;
+    fb.innerHTML="<option value=''>Todos os rótulos</option>"+Object.keys(beers).sort().map(function(b){
+      return "<option value='"+esc(b)+"'>"+esc(b)+"</option>"; }).join('');
+    fb.value=curb;
+  }
+  function renderHistory(){
+    var fm=document.getElementById('filt-membro').value, fb=document.getElementById('filt-beer').value;
+    var list=data.tastings.filter(function(t){ return (!fm||t.memberId===fm)&&(!fb||t.beer===fb); });
+    var el=document.getElementById('hist-list');
+    if(list.length===0){ el.innerHTML="<p class='empty'>Nada registrado para este filtro.</p>"; return; }
+    el.innerHTML=list.map(function(t){
+      var meta=[t.brewery,t.style].filter(Boolean).join(' &middot; ');
+      return "<div class='entry'><span class='who'>"+esc(memberName(t.memberId))+"</span>"+
+        "<div class='det'><div class='bn'>"+esc(t.beer)+"</div>"+
+        (meta?"<div class='bm'>"+meta+"</div>":'')+
+        (t.notes?"<div class='note'>"+esc(t.notes)+"</div>":'')+"</div>"+
+        "<div class='en'>"+Number(t.score).toFixed(1)+"</div>"+
+        "<button class='x' data-del='"+t.id+"' title='Remover'>&times;</button></div>";
+    }).join('');
+    el.querySelectorAll('[data-del]').forEach(function(b){
+      b.onclick=function(){ act({action:'deleteTasting',payload:{id:b.getAttribute('data-del')}}); };
+    });
+  }
+  function renderMembers(){
+    var counts={}; data.tastings.forEach(function(t){ counts[t.memberId]=(counts[t.memberId]||0)+1; });
+    var sel=document.getElementById('f-membro'), cur=sel.value;
+    sel.innerHTML=data.members.map(function(m){ return "<option value='"+m.id+"'>"+esc(m.name)+"</option>"; }).join('');
+    if(cur) sel.value=cur;
+    var el=document.getElementById('member-list');
+    if(data.members.length===0){ el.innerHTML="<p class='empty'>Nenhum confrade ainda.</p>"; return; }
+    el.innerHTML=data.members.map(function(m){ var c=counts[m.id]||0;
+      return "<div class='member'><div><div class='mn'>"+esc(m.name)+"</div>"+
+        "<div class='mc'>"+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
+        "<button class='x' data-delm='"+m.id+"' title='Remover'>&times;</button></div>";
+    }).join('');
+    el.querySelectorAll('[data-delm]').forEach(function(b){
+      b.onclick=function(){
+        if(confirm('Remover este confrade? As degustações dele também serão apagadas.'))
+          act({action:'deleteMember',payload:{id:b.getAttribute('data-delm')}});
+      };
+    });
+  }
+  function renderAll(){ renderStats(); renderRanking(); renderHistFilters(); renderHistory(); renderMembers(); }
+
+  // ---------- Mutations ----------
+  async function act(body){
+    try{ data = await api('POST', body); renderAll(); }
+    catch(e){ toast(e.message); }
+  }
+
+  // ---------- Tabs ----------
+  document.querySelectorAll('nav.tabs button').forEach(function(b){
+    b.onclick=function(){
+      document.querySelectorAll('nav.tabs button').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.view').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active'); document.getElementById(b.getAttribute('data-tab')).classList.add('active');
+    };
+  });
+
+  // ---------- Slider ----------
+  var slider=document.getElementById('f-score');
+  function updScore(){ document.getElementById('f-score-val').textContent=Number(slider.value).toFixed(1);
+    document.getElementById('f-rings').innerHTML=rings(Number(slider.value)); }
+  slider.oninput=updScore;
+
+  // ---------- Salvar degustação ----------
+  document.getElementById('f-save').onclick=async function(){
+    var btn=this;
+    var beer=document.getElementById('f-beer').value.trim();
+    var membro=document.getElementById('f-membro').value;
+    if(!beer){ toast('Dê um nome ao rótulo antes de inscrevê-lo.'); return; }
+    if(!membro){ toast('Adicione ao menos um confrade na aba Confrades.'); return; }
+    btn.disabled=true; btn.textContent='Inscrevendo…';
+    try{
+      data = await api('POST', {action:'addTasting', payload:{
+        beer:beer, brewery:document.getElementById('f-brewery').value.trim(),
+        style:document.getElementById('f-style').value.trim(), memberId:membro,
+        score:Number(slider.value), notes:document.getElementById('f-notes').value.trim()
+      }});
+      document.getElementById('f-beer').value='';
+      document.getElementById('f-brewery').value='';
+      document.getElementById('f-style').value='';
+      document.getElementById('f-notes').value='';
+      slider.value=7; updScore(); renderAll();
+      document.querySelector("nav.tabs button[data-tab='ranking']").click();
+    }catch(e){ toast(e.message); }
+    finally{ btn.disabled=false; btn.textContent='Inscrever no livro'; }
+  };
+
+  // ---------- Adicionar membro ----------
+  function addMember(){
+    var n=document.getElementById('m-name').value.trim(); if(!n) return;
+    document.getElementById('m-name').value='';
+    act({action:'addMember', payload:{name:n}});
+  }
+  document.getElementById('m-add').onclick=addMember;
+  document.getElementById('m-name').addEventListener('keydown',function(e){ if(e.key==='Enter') addMember(); });
+
+  document.getElementById('filt-membro').onchange=renderHistory;
+  document.getElementById('filt-beer').onchange=renderHistory;
+
+  // ---------- Init ----------
+  updScore();
+  refresh().catch(function(e){
+    document.getElementById('rank-list').innerHTML=
+      "<p class='empty'>Não foi possível abrir o livro.<br>"+esc(e.message)+"</p>";
+    toast(e.message);
+  });
+})();
+</script>
+</body>
+</html>
