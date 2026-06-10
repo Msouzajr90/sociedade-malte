@@ -4,130 +4,176 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sociedade do Malte — Livro de Degustações</title>
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14100a;--ink-2:#1f1810;--panel:#ece0c4;--panel-edge:#d8c79f;
-    --parch-ink:#3a2c1a;--parch-dim:#7a674a;--gold:#caa64b;--gold-bright:#f1d57e;
-    --amber:#b06a2c;--shire:#647344;--oxblood:#8a2f2a;--line:rgba(202,166,75,.24);
+    --bg:#f1e7d2;            /* fundo claro, em harmonia com a logo */
+    --card:#fbf6ea;          /* pergaminho claro dos cartões */
+    --card-edge:#d9c8a2;
+    --ink:#241d12;           /* texto principal escuro */
+    --ink-soft:#5e4f37;      /* texto secundário */
+    --gold:#a9821f;
+    --gold-deep:#806115;
+    --green:#3c4a2a;         /* verde profundo da logo */
+    --green-soft:#5a6e3f;
+    --amber:#9c5a1c;
+    --oxblood:#7d2a25;
+    --line:rgba(60,74,42,.16);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:
-      radial-gradient(120% 60% at 50% -10%, rgba(202,166,75,.10), transparent 60%),
-      radial-gradient(80% 50% at 50% 110%, rgba(100,115,68,.10), transparent 60%),
-      #14100a;
-    color:var(--panel);font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
+      radial-gradient(130% 70% at 50% -10%, rgba(169,130,31,.10), transparent 60%),
+      radial-gradient(80% 50% at 50% 110%, rgba(60,74,42,.08), transparent 60%),
+      var(--bg);
+    color:var(--ink);font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
     min-height:100vh;-webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:680px;margin:0 auto;padding:0 18px 80px;}
 
-  header.mast{text-align:center;padding:38px 0 22px;position:relative;}
-  .crest{width:70px;height:70px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 50% 35%, rgba(241,213,126,.18), transparent 70%);
-    box-shadow:0 0 26px rgba(202,166,75,.28), inset 0 0 18px rgba(202,166,75,.18);}
-  .crest span{font-size:30px;color:var(--gold-bright);line-height:1;}
-  .mast h1{font-family:"Cinzel Decorative",serif;font-weight:900;color:var(--gold-bright);
-    font-size:clamp(28px,7vw,42px);margin:0;letter-spacing:.02em;text-shadow:0 0 22px rgba(202,166,75,.25);}
-  .mast .creed{font-style:italic;max-width:30ch;margin:10px auto 0;font-size:16px;color:#bfae8a;}
-  .mast .meet{margin-top:14px;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);}
-  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:8px 0 0;}
+  /* ---------- Portão de acesso (login) ---------- */
+  #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    padding:22px;background:
+      radial-gradient(120% 60% at 50% 0%, rgba(169,130,31,.14), transparent 60%), var(--bg);}
+  .gate-box{max-width:420px;width:100%;text-align:center;}
+  .gate-logo{width:180px;max-width:55vw;height:auto;filter:drop-shadow(0 8px 22px rgba(36,29,18,.25));}
+  .gate-tag{font-family:"Cinzel",serif;font-size:14px;letter-spacing:.04em;color:var(--green);
+    margin:6px 0 22px;font-weight:600;}
+  .gate-h{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;}
+  .who-grid{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:18px;}
+  .who-pick{font-family:"Cinzel",serif;font-size:15px;cursor:pointer;border:1px solid var(--card-edge);
+    background:var(--card);color:var(--ink);padding:10px 16px;border-radius:24px;transition:.15s;}
+  .who-pick:hover{border-color:var(--gold);background:#fff;transform:translateY(-1px);}
+  .gate-new{border-top:1px solid var(--line);padding-top:16px;}
+  .gate-new .row{display:flex;gap:9px;}
+  .gate-new input{flex:1;}
+  .gate-link{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-family:"EB Garamond",serif;
+    font-size:16px;text-decoration:underline;font-style:italic;}
 
+  /* ---------- Masthead ---------- */
+  header.mast{text-align:center;padding:26px 0 14px;}
+  .mast-logo{width:150px;max-width:46vw;height:auto;filter:drop-shadow(0 6px 16px rgba(36,29,18,.2));}
+  .mast .creed{font-family:"Cinzel",serif;font-style:normal;font-weight:600;max-width:30ch;margin:8px auto 0;
+    font-size:16px;letter-spacing:.02em;color:var(--green);}
+  .whoami{margin-top:14px;font-size:14px;color:var(--ink-soft);}
+  .whoami b{color:var(--ink);font-family:"Cinzel",serif;}
+  .whoami button{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-family:inherit;
+    font-size:14px;text-decoration:underline;font-style:italic;}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:16px 0 0;}
+
+  /* ---------- Stats ---------- */
   .stats{display:flex;gap:10px;margin:20px 0 8px;}
-  .stat{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px 6px;background:rgba(31,24,16,.55);}
-  .stat b{display:block;font-family:"Cinzel",serif;font-size:24px;color:var(--gold-bright);}
-  .stat small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--parch-dim);margin-top:2px;}
+  .stat{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px 6px;background:var(--card);}
+  .stat b{display:block;font-family:"Cinzel",serif;font-size:24px;color:var(--gold-deep);}
+  .stat small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
 
-  nav.tabs{display:flex;gap:4px;margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;padding:4px;background:rgba(31,24,16,.6);}
+  /* ---------- Tabs ---------- */
+  nav.tabs{display:flex;gap:4px;margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;padding:4px;background:var(--card);}
   nav.tabs button{flex:1;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;
-    letter-spacing:.06em;color:var(--parch-dim);padding:10px 4px;border-radius:7px;transition:.18s;}
-  nav.tabs button.active{background:linear-gradient(180deg,#2c2114,#221910);color:var(--gold-bright);box-shadow:inset 0 0 0 1px var(--line);}
-  nav.tabs button:hover{color:var(--gold);}
+    letter-spacing:.06em;color:var(--ink-soft);padding:10px 4px;border-radius:7px;transition:.18s;}
+  nav.tabs button.active{background:var(--green);color:#f5eeda;}
+  nav.tabs button:hover:not(.active){color:var(--green);}
 
   .view{display:none;}
   .view.active{display:block;animation:fade .35s ease;}
   @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
-  .card{background:var(--panel);color:var(--parch-ink);border-radius:10px;padding:18px 18px 20px;margin-bottom:14px;
-    border:1px solid var(--panel-edge);box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 60px rgba(122,103,74,.12);}
+  /* ---------- Cartões ---------- */
+  .card{background:var(--card);color:var(--ink);border-radius:10px;padding:18px 18px 20px;margin-bottom:14px;
+    border:1px solid var(--card-edge);box-shadow:0 6px 20px rgba(36,29,18,.10);}
   .eyebrow{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:0 0 12px;}
-  h2.sec{font-family:"Cinzel",serif;color:var(--gold-bright);font-size:20px;margin:0 0 4px;font-weight:600;}
-  .sec-sub{color:#bfae8a;font-size:15px;margin:0 0 16px;font-style:italic;}
+  h2.sec{font-family:"Cinzel",serif;color:var(--green);font-size:20px;margin:0 0 4px;font-weight:600;}
+  .sec-sub{color:var(--ink-soft);font-size:15px;margin:0 0 16px;font-style:italic;}
 
-  label{display:block;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--parch-dim);margin:14px 0 5px;}
-  input[type=text], select, textarea{width:100%;background:#fbf5e6;border:1px solid var(--panel-edge);
-    border-bottom:2px solid var(--amber);border-radius:6px;color:var(--parch-ink);font-family:"EB Garamond",serif;font-size:17px;padding:10px 12px;}
+  label{display:block;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 5px;}
+  input[type=text], textarea{width:100%;background:#fffdf7;border:1px solid var(--card-edge);
+    border-bottom:2px solid var(--amber);border-radius:6px;color:var(--ink);font-family:"EB Garamond",serif;font-size:17px;padding:10px 12px;}
   textarea{min-height:64px;resize:vertical;}
-  input:focus, select:focus, textarea:focus{outline:none;border-bottom-color:var(--shire);box-shadow:0 0 0 3px rgba(100,115,68,.18);}
+  input:focus, textarea:focus{outline:none;border-bottom-color:var(--green-soft);box-shadow:0 0 0 3px rgba(90,110,63,.15);}
   .row{display:flex;gap:12px;}
   .row > div{flex:1;}
+
+  .as-who{background:rgba(60,74,42,.08);border:1px solid var(--line);border-radius:8px;padding:10px 14px;
+    font-size:15px;color:var(--ink-soft);margin-bottom:4px;}
+  .as-who b{color:var(--green);font-family:"Cinzel",serif;}
 
   .score-wrap{margin-top:14px;}
   .score-head{display:flex;align-items:baseline;justify-content:space-between;}
   .score-val{font-family:"Cinzel",serif;font-size:30px;color:var(--amber);}
-  .score-val small{font-size:15px;color:var(--parch-dim);}
+  .score-val small{font-size:15px;color:var(--ink-soft);}
   input[type=range]{width:100%;accent-color:var(--amber);height:30px;}
   .rings{font-size:20px;letter-spacing:3px;margin-top:2px;color:var(--gold);}
-  .rings .off{color:rgba(58,44,26,.22);}
+  .rings .off{color:rgba(36,29,18,.18);}
 
   .btn{width:100%;margin-top:18px;cursor:pointer;border:none;border-radius:8px;font-family:"Cinzel",serif;
-    font-size:14px;letter-spacing:.08em;padding:13px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-    color:#2a1f0c;font-weight:600;box-shadow:0 4px 16px rgba(202,166,75,.3);transition:.15s;}
+    font-size:14px;letter-spacing:.08em;padding:13px;background:linear-gradient(180deg,#caa64b,#a9821f);
+    color:#2a1f0c;font-weight:600;box-shadow:0 4px 14px rgba(169,130,31,.28);transition:.15s;}
   .btn:hover{transform:translateY(-1px);}
   .btn:disabled{opacity:.55;cursor:wait;transform:none;}
 
-  .rank{display:flex;align-items:center;gap:14px;padding:14px 8px;border-bottom:1px solid rgba(122,103,74,.2);}
+  .rank{display:flex;align-items:center;gap:14px;padding:14px 8px;border-bottom:1px solid var(--line);}
   .rank:last-child{border-bottom:none;}
-  .rank .pos{font-family:"Cinzel",serif;font-size:20px;width:30px;text-align:center;color:var(--parch-dim);flex:none;}
+  .rank .pos{font-family:"Cinzel",serif;font-size:20px;width:30px;text-align:center;color:var(--ink-soft);flex:none;}
   .rank .body{flex:1;min-width:0;}
-  .rank .name{font-family:"Cinzel",serif;font-size:17px;color:var(--parch-ink);font-weight:600;}
-  .rank .meta{font-size:14px;color:var(--parch-dim);font-style:italic;}
+  .rank .name{font-family:"Cinzel",serif;font-size:17px;color:var(--ink);font-weight:600;}
+  .rank .meta{font-size:14px;color:var(--ink-soft);font-style:italic;}
   .rank .avg{font-family:"Cinzel",serif;font-size:22px;color:var(--amber);flex:none;text-align:right;}
-  .rank .avg small{display:block;font-size:10px;letter-spacing:.1em;color:var(--parch-dim);font-style:normal;}
-  .rank.gold{background:radial-gradient(120% 100% at 0% 0%, rgba(241,213,126,.35), transparent 70%);
-    border:1px solid var(--gold);border-radius:10px;margin:2px 0;box-shadow:0 0 22px rgba(202,166,75,.35);}
-  .rank.gold .pos{color:var(--amber);}
+  .rank .avg small{display:block;font-size:10px;letter-spacing:.1em;color:var(--ink-soft);font-style:normal;}
+  .rank.gold{background:radial-gradient(120% 100% at 0% 0%, rgba(169,130,31,.18), transparent 70%);
+    border:1px solid var(--gold);border-radius:10px;margin:2px 0;box-shadow:0 0 16px rgba(169,130,31,.22);}
+  .rank.gold .pos{color:var(--gold-deep);}
   .rank .ring-medal{font-size:20px;}
 
   .filters{display:flex;gap:10px;margin-bottom:14px;}
-  .entry{padding:12px 4px;border-bottom:1px solid rgba(122,103,74,.2);display:flex;gap:12px;align-items:flex-start;}
+  select{width:100%;background:#fffdf7;border:1px solid var(--card-edge);border-bottom:2px solid var(--amber);
+    border-radius:6px;color:var(--ink);font-family:"EB Garamond",serif;font-size:16px;padding:10px 12px;}
+  .entry{padding:12px 4px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;}
   .entry:last-child{border-bottom:none;}
-  .entry .who{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.06em;color:#fff;background:var(--shire);padding:4px 9px;border-radius:20px;flex:none;}
+  .entry .who{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.06em;color:#f5eeda;background:var(--green);padding:4px 9px;border-radius:20px;flex:none;}
   .entry .det{flex:1;min-width:0;}
-  .entry .bn{font-weight:600;color:var(--parch-ink);}
-  .entry .bm{font-size:14px;color:var(--parch-dim);font-style:italic;}
-  .entry .note{font-size:15px;color:var(--parch-ink);margin-top:3px;}
+  .entry .bn{font-weight:600;color:var(--ink);}
+  .entry .bm{font-size:14px;color:var(--ink-soft);font-style:italic;}
+  .entry .note{font-size:15px;color:var(--ink);margin-top:3px;}
   .entry .en{font-family:"Cinzel",serif;color:var(--amber);font-size:17px;flex:none;}
   .entry .x, .member .x{background:none;border:none;color:var(--oxblood);cursor:pointer;font-size:16px;padding:2px 4px;flex:none;}
 
-  .member{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;border-bottom:1px solid rgba(122,103,74,.2);}
+  .member{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;border-bottom:1px solid var(--line);}
   .member:last-child{border-bottom:none;}
-  .member .mn{font-size:17px;color:var(--parch-ink);}
-  .member .mc{font-size:13px;color:var(--parch-dim);font-style:italic;}
+  .member .mn{font-size:17px;color:var(--ink);}
+  .member .mc{font-size:13px;color:var(--ink-soft);font-style:italic;}
 
-  .empty{text-align:center;color:var(--parch-dim);font-style:italic;padding:26px 10px;}
-  footer{text-align:center;color:#6b5b40;font-size:13px;font-style:italic;margin-top:24px;}
+  .empty{text-align:center;color:var(--ink-soft);font-style:italic;padding:26px 10px;}
+  footer{text-align:center;color:#8a7858;font-size:13px;font-style:italic;margin-top:24px;}
 
-  /* estado de carregamento / erro */
   #toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--oxblood);color:#fff;
-    padding:11px 18px;border-radius:8px;font-size:15px;max-width:90vw;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.5);
-    opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+    padding:11px 18px;border-radius:8px;font-size:15px;max-width:90vw;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.3);
+    opacity:0;pointer-events:none;transition:.25s;z-index:120;}
   #toast.show{opacity:1;}
-  .loading{text-align:center;color:var(--gold);font-family:"Cinzel",serif;letter-spacing:.1em;padding:40px 10px;font-size:14px;}
+  .loading{text-align:center;color:var(--gold-deep);font-family:"Cinzel",serif;letter-spacing:.1em;padding:30px 10px;font-size:14px;}
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<!-- ================= PORTÃO DE ACESSO ================= -->
+<div id="gate">
+  <div class="gate-box">
+    <img class="gate-logo" src="logo.png" alt="Sociedade do Malte">
+    <p class="gate-tag">Uma cerveja para a todos governar</p>
+    <div id="gate-body"><div class="loading">Abrindo os portões&hellip;</div></div>
+  </div>
+</div>
+
+<!-- ================= APLICATIVO ================= -->
+<div class="wrap" id="app" style="display:none">
 
   <header class="mast">
-    <div class="crest"><span>&#9737;</span></div>
-    <h1>Sociedade do Malte</h1>
-    <p class="creed">"Uma confraria para a todos reunir, e na taça de malte uni-los."</p>
-    <p class="meet">Confraria &middot; Encontros à lua cheia de cada mês</p>
+    <img class="mast-logo" src="logo.png" alt="Sociedade do Malte">
+    <p class="creed">Uma cerveja para a todos governar</p>
+    <div class="whoami">Confrade: <b id="who-name">—</b> &middot; <button id="switch">trocar</button></div>
     <div class="rule"></div>
   </header>
 
@@ -157,9 +203,8 @@
     <div class="card">
       <p class="eyebrow">Inscrever no Livro</p>
       <h2 class="sec">Registrar degustação</h2>
-      <p class="sec-sub">Quem provou, o que provou e a nota que concedeu.</p>
-      <label for="f-membro">Confrade</label>
-      <select id="f-membro"></select>
+      <p class="sec-sub">O que você provou e a nota que concedeu.</p>
+      <div class="as-who">Registrando como <b id="as-who-name">—</b></div>
       <label for="f-beer">Rótulo da cerveja</label>
       <input type="text" id="f-beer" placeholder="ex.: Stout do Condado">
       <div class="row">
@@ -207,12 +252,21 @@
 
   <footer>Livro de Degustações &middot; histórico compartilhado da confraria</footer>
 </div>
+
 <div id="toast"></div>
 
 <script>
 (function(){
   "use strict";
   var data = { members:[], tastings:[] };
+  var me = null; // confrade logado {id, name}
+
+  // ---------- Identidade (lembrada no aparelho) ----------
+  var idStore = {
+    get:function(){ try{ return JSON.parse(localStorage.getItem('malte_identity')); }catch(e){ return null; } },
+    set:function(v){ try{ localStorage.setItem('malte_identity', JSON.stringify(v)); }catch(e){} },
+    clear:function(){ try{ localStorage.removeItem('malte_identity'); }catch(e){} }
+  };
 
   // ---------- API ----------
   async function api(method, body){
@@ -225,15 +279,8 @@
     if(!res.ok){ throw new Error(json.error || 'Falha na comunicação com o servidor.'); }
     return json;
   }
-  async function refresh(){
-    data = await api('GET');
-    renderAll();
-  }
-  function toast(msg){
-    var t=document.getElementById('toast');
-    t.textContent=msg; t.classList.add('show');
-    clearTimeout(toast._t); toast._t=setTimeout(function(){ t.classList.remove('show'); }, 3800);
-  }
+  function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+    clearTimeout(toast._t); toast._t=setTimeout(function(){ t.classList.remove('show'); }, 3800); }
 
   function memberName(id){ var m=data.members.find(function(x){return x.id===id;}); return m?m.name:'—'; }
   function beerKey(t){ return (t.beer+'|'+(t.brewery||'')).toLowerCase().trim(); }
@@ -241,6 +288,55 @@
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function rings(score){ var f=Math.round(score/2),s='';
     for(var i=0;i<5;i++){ s+= i<f ? '&#9737;' : "<span class='off'>&#9737;</span>"; } return s; }
+
+  // ---------- Portão / login ----------
+  function showGate(errMsg){
+    document.getElementById('app').style.display='none';
+    document.getElementById('gate').style.display='flex';
+    var body=document.getElementById('gate-body');
+    if(errMsg){ body.innerHTML="<p class='empty'>"+esc(errMsg)+"</p>"; return; }
+    var picks = data.members.length
+      ? "<p class='gate-h'>Quem é você?</p><div class='who-grid'>"+
+        data.members.map(function(m){ return "<button class='who-pick' data-mid='"+m.id+"'>"+esc(m.name)+"</button>"; }).join('')+"</div>"
+      : "<p class='gate-h'>Seja o primeiro confrade</p>";
+    body.innerHTML = picks +
+      "<div class='gate-new'><div class='row'>"+
+        "<input type='text' id='gate-newname' placeholder='Novo confrade: seu nome'>"+
+        "<button class='btn' style='margin-top:0;width:auto;padding:13px 18px' id='gate-newbtn'>Entrar</button>"+
+      "</div></div>";
+    body.querySelectorAll('[data-mid]').forEach(function(b){
+      b.onclick=function(){ var m=data.members.find(function(x){return x.id===b.getAttribute('data-mid');});
+        if(m) setMe(m); };
+    });
+    var input=document.getElementById('gate-newname');
+    document.getElementById('gate-newbtn').onclick=function(){ loginNew(input.value.trim()); };
+    input.addEventListener('keydown',function(e){ if(e.key==='Enter') loginNew(input.value.trim()); });
+  }
+  async function loginNew(name){
+    if(!name) return;
+    try{
+      var prev={}; data.members.forEach(function(m){ prev[m.id]=1; });
+      data = await api('POST', {action:'addMember', payload:{name:name}});
+      var added = data.members.find(function(m){ return !prev[m.id]; })
+               || data.members.find(function(m){ return m.name===name; });
+      if(added) setMe(added);
+    }catch(e){ toast(e.message); }
+  }
+  function setMe(m){
+    me = {id:m.id, name:m.name};
+    idStore.set(me);
+    enterApp();
+  }
+  function enterApp(){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    document.getElementById('who-name').textContent=me.name;
+    document.getElementById('as-who-name').textContent=me.name;
+    renderAll();
+  }
+  document.getElementById('switch').onclick=function(){
+    idStore.clear(); me=null; showGate();
+  };
 
   // ---------- Render ----------
   function renderStats(){
@@ -297,13 +393,10 @@
   }
   function renderMembers(){
     var counts={}; data.tastings.forEach(function(t){ counts[t.memberId]=(counts[t.memberId]||0)+1; });
-    var sel=document.getElementById('f-membro'), cur=sel.value;
-    sel.innerHTML=data.members.map(function(m){ return "<option value='"+m.id+"'>"+esc(m.name)+"</option>"; }).join('');
-    if(cur) sel.value=cur;
     var el=document.getElementById('member-list');
     if(data.members.length===0){ el.innerHTML="<p class='empty'>Nenhum confrade ainda.</p>"; return; }
     el.innerHTML=data.members.map(function(m){ var c=counts[m.id]||0;
-      return "<div class='member'><div><div class='mn'>"+esc(m.name)+"</div>"+
+      return "<div class='member'><div><div class='mn'>"+esc(m.name)+(me&&m.id===me.id?" &middot; <span style='color:var(--gold-deep)'>você</span>":'')+"</div>"+
         "<div class='mc'>"+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
         "<button class='x' data-delm='"+m.id+"' title='Remover'>&times;</button></div>";
     }).join('');
@@ -318,8 +411,12 @@
 
   // ---------- Mutations ----------
   async function act(body){
-    try{ data = await api('POST', body); renderAll(); }
-    catch(e){ toast(e.message); }
+    try{
+      data = await api('POST', body);
+      // se o confrade logado foi removido, volta ao portão
+      if(me && !data.members.find(function(m){return m.id===me.id;})){ idStore.clear(); me=null; showGate(); return; }
+      renderAll();
+    }catch(e){ toast(e.message); }
   }
 
   // ---------- Tabs ----------
@@ -340,15 +437,14 @@
   // ---------- Salvar degustação ----------
   document.getElementById('f-save').onclick=async function(){
     var btn=this;
+    if(!me){ showGate(); return; }
     var beer=document.getElementById('f-beer').value.trim();
-    var membro=document.getElementById('f-membro').value;
     if(!beer){ toast('Dê um nome ao rótulo antes de inscrevê-lo.'); return; }
-    if(!membro){ toast('Adicione ao menos um confrade na aba Confrades.'); return; }
     btn.disabled=true; btn.textContent='Inscrevendo…';
     try{
       data = await api('POST', {action:'addTasting', payload:{
         beer:beer, brewery:document.getElementById('f-brewery').value.trim(),
-        style:document.getElementById('f-style').value.trim(), memberId:membro,
+        style:document.getElementById('f-style').value.trim(), memberId:me.id,
         score:Number(slider.value), notes:document.getElementById('f-notes').value.trim()
       }});
       document.getElementById('f-beer').value='';
@@ -361,7 +457,7 @@
     finally{ btn.disabled=false; btn.textContent='Inscrever no livro'; }
   };
 
-  // ---------- Adicionar membro ----------
+  // ---------- Adicionar membro (aba Confrades) ----------
   function addMember(){
     var n=document.getElementById('m-name').value.trim(); if(!n) return;
     document.getElementById('m-name').value='';
@@ -375,11 +471,19 @@
 
   // ---------- Init ----------
   updScore();
-  refresh().catch(function(e){
-    document.getElementById('rank-list').innerHTML=
-      "<p class='empty'>Não foi possível abrir o livro.<br>"+esc(e.message)+"</p>";
-    toast(e.message);
-  });
+  (async function(){
+    try{
+      data = await api('GET');
+      var saved = idStore.get();
+      if(saved && data.members.find(function(m){return m.id===saved.id;})){
+        me = saved; enterApp();
+      } else {
+        idStore.clear(); showGate();
+      }
+    }catch(e){
+      showGate('Não foi possível abrir o livro.\n'+e.message);
+    }
+  })();
 })();
 </script>
 </body>
