@@ -9,51 +9,43 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#f1e7d2;--card:#fbf6ea;--card-edge:#d9c8a2;--ink:#241d12;--ink-soft:#5e4f37;
-    --gold:#a9821f;--gold-deep:#806115;--green:#3c4a2a;--green-soft:#5a6e3f;
-    --amber:#9c5a1c;--oxblood:#7d2a25;--line:rgba(60,74,42,.16);
-  }
+  :root{--bg:#f1e7d2;--card:#fbf6ea;--card-edge:#d9c8a2;--ink:#241d12;--ink-soft:#5e4f37;
+    --gold:#a9821f;--gold-deep:#806115;--green:#3c4a2a;--green-soft:#5a6e3f;--amber:#9c5a1c;--oxblood:#7d2a25;--line:rgba(60,74,42,.16);}
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
-  body{background:
-      radial-gradient(130% 70% at 50% -10%, rgba(169,130,31,.10), transparent 60%),
-      radial-gradient(80% 50% at 50% 110%, rgba(60,74,42,.08), transparent 60%), var(--bg);
-    color:var(--ink);font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
-    min-height:100vh;-webkit-font-smoothing:antialiased;}
+  body{background:radial-gradient(130% 70% at 50% -10%, rgba(169,130,31,.10), transparent 60%),
+    radial-gradient(80% 50% at 50% 110%, rgba(60,74,42,.08), transparent 60%), var(--bg);
+    color:var(--ink);font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;min-height:100vh;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:680px;margin:0 auto;padding:0 18px 80px;}
 
-  /* ---------- Portão ---------- */
   #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:22px;
     background:radial-gradient(120% 60% at 50% 0%, rgba(169,130,31,.14), transparent 60%), var(--bg);overflow:auto;}
   .gate-box{max-width:400px;width:100%;text-align:center;}
-  .gate-logo{width:170px;max-width:52vw;height:auto;filter:drop-shadow(0 8px 22px rgba(36,29,18,.25));}
-  .gate-tag{font-family:"Cinzel",serif;font-size:14px;letter-spacing:.04em;color:var(--green);margin:6px 0 20px;font-weight:600;}
+  .gate-logo{width:184px;max-width:54vw;height:auto;border-radius:20px;border:2px solid var(--gold);box-shadow:0 10px 26px rgba(36,29,18,.32);}
+  .gate-tag{font-family:"Cinzel",serif;font-size:14px;letter-spacing:.04em;color:var(--green);margin:12px 0 20px;font-weight:600;}
   .gate-toggle{display:flex;gap:4px;border:1px solid var(--line);border-radius:9px;padding:4px;background:var(--card);margin-bottom:18px;}
-  .gate-toggle button{flex:1;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;
-    letter-spacing:.06em;color:var(--ink-soft);padding:9px 4px;border-radius:6px;}
+  .gate-toggle button{flex:1;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;letter-spacing:.06em;color:var(--ink-soft);padding:9px 4px;border-radius:6px;}
   .gate-toggle button.active{background:var(--green);color:#f5eeda;}
   .gate-form{text-align:left;}
   .gate-err{color:var(--oxblood);font-size:14px;min-height:18px;margin-top:4px;text-align:center;}
 
   header.mast{text-align:center;padding:26px 0 14px;}
-  .mast-logo{width:140px;max-width:44vw;height:auto;filter:drop-shadow(0 6px 16px rgba(36,29,18,.2));}
-  .mast .creed{font-family:"Cinzel",serif;font-weight:600;max-width:30ch;margin:8px auto 0;font-size:16px;letter-spacing:.02em;color:var(--green);}
-  .whoami{margin-top:14px;font-size:14px;color:var(--ink-soft);}
+  .mast-logo{width:150px;max-width:46vw;height:auto;border-radius:16px;border:2px solid var(--gold);box-shadow:0 6px 18px rgba(36,29,18,.28);}
+  .mast .creed{font-family:"Cinzel",serif;font-weight:600;max-width:30ch;margin:10px auto 0;font-size:16px;letter-spacing:.02em;color:var(--green);}
+  .mast .about-link{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-family:"EB Garamond",serif;font-style:italic;font-size:14px;text-decoration:underline;margin-top:6px;}
+  .whoami{margin-top:12px;font-size:14px;color:var(--ink-soft);}
   .whoami b{color:var(--ink);font-family:"Cinzel",serif;}
-  .whoami .tag{display:inline-block;font-family:"Cinzel",serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-    background:var(--gold);color:#2a1f0c;padding:2px 8px;border-radius:20px;margin-left:4px;}
+  .whoami .tag{display:inline-block;font-family:"Cinzel",serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#2a1f0c;padding:2px 8px;border-radius:20px;margin-left:4px;}
   .whoami button{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-family:inherit;font-size:14px;text-decoration:underline;font-style:italic;}
   .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:16px 0 0;}
 
-  .stats{display:flex;gap:10px;margin:20px 0 8px;}
-  .stat{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px 6px;background:var(--card);}
-  .stat b{display:block;font-family:"Cinzel",serif;font-size:24px;color:var(--gold-deep);}
-  .stat small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
+  .stats{display:flex;gap:8px;margin:20px 0 8px;}
+  .stat{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px 4px;background:var(--card);}
+  .stat b{display:block;font-family:"Cinzel",serif;font-size:22px;color:var(--gold-deep);}
+  .stat small{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
 
   nav.tabs{display:flex;gap:4px;margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;padding:4px;background:var(--card);flex-wrap:wrap;}
-  nav.tabs button{flex:1;min-width:72px;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;
-    letter-spacing:.05em;color:var(--ink-soft);padding:10px 4px;border-radius:7px;transition:.18s;}
+  nav.tabs button{flex:1 1 28%;min-width:70px;background:none;border:none;cursor:pointer;font-family:"Cinzel",serif;font-size:12px;letter-spacing:.04em;color:var(--ink-soft);padding:9px 4px;border-radius:7px;transition:.18s;}
   nav.tabs button.active{background:var(--green);color:#f5eeda;}
   nav.tabs button:hover:not(.active){color:var(--green);}
 
@@ -61,20 +53,17 @@
   .view.active{display:block;animation:fade .35s ease;}
   @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
-  .card{background:var(--card);color:var(--ink);border-radius:10px;padding:18px 18px 20px;margin-bottom:14px;
-    border:1px solid var(--card-edge);box-shadow:0 6px 20px rgba(36,29,18,.10);}
+  .card{background:var(--card);color:var(--ink);border-radius:10px;padding:18px 18px 20px;margin-bottom:14px;border:1px solid var(--card-edge);box-shadow:0 6px 20px rgba(36,29,18,.10);}
   .eyebrow{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:0 0 12px;}
   h2.sec{font-family:"Cinzel",serif;color:var(--green);font-size:20px;margin:0 0 4px;font-weight:600;}
   .sec-sub{color:var(--ink-soft);font-size:15px;margin:0 0 16px;font-style:italic;}
 
   label{display:block;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 5px;}
-  input[type=text],input[type=password],textarea,select{width:100%;background:#fffdf7;border:1px solid var(--card-edge);
-    border-bottom:2px solid var(--amber);border-radius:6px;color:var(--ink);font-family:"EB Garamond",serif;font-size:17px;padding:10px 12px;}
+  input[type=text],input[type=password],input[type=date],textarea,select{width:100%;background:#fffdf7;border:1px solid var(--card-edge);border-bottom:2px solid var(--amber);border-radius:6px;color:var(--ink);font-family:"EB Garamond",serif;font-size:17px;padding:10px 12px;}
   textarea{min-height:64px;resize:vertical;}
   input:focus,textarea:focus,select:focus{outline:none;border-bottom-color:var(--green-soft);box-shadow:0 0 0 3px rgba(90,110,63,.15);}
   .row{display:flex;gap:12px;}
   .row > div{flex:1;}
-
   .as-who{background:rgba(60,74,42,.08);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--ink-soft);margin-bottom:4px;}
   .as-who b{color:var(--green);font-family:"Cinzel",serif;}
 
@@ -86,9 +75,7 @@
   .rings{font-size:20px;letter-spacing:3px;margin-top:2px;color:var(--gold);}
   .rings .off{color:rgba(36,29,18,.18);}
 
-  .btn{width:100%;margin-top:18px;cursor:pointer;border:none;border-radius:8px;font-family:"Cinzel",serif;font-size:14px;
-    letter-spacing:.08em;padding:13px;background:linear-gradient(180deg,#caa64b,#a9821f);color:#2a1f0c;font-weight:600;
-    box-shadow:0 4px 14px rgba(169,130,31,.28);transition:.15s;}
+  .btn{width:100%;margin-top:18px;cursor:pointer;border:none;border-radius:8px;font-family:"Cinzel",serif;font-size:14px;letter-spacing:.08em;padding:13px;background:linear-gradient(180deg,#caa64b,#a9821f);color:#2a1f0c;font-weight:600;box-shadow:0 4px 14px rgba(169,130,31,.28);transition:.15s;}
   .btn:hover{transform:translateY(-1px);}
   .btn:disabled{opacity:.55;cursor:wait;transform:none;}
   .btn.green{background:linear-gradient(180deg,#5a6e3f,#3c4a2a);color:#f5eeda;}
@@ -96,6 +83,17 @@
 
   .thumb{width:46px;height:46px;border-radius:8px;object-fit:cover;border:1px solid var(--card-edge);flex:none;background:#efe6d0;}
   .thumb.ph{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:22px;}
+
+  /* Próximo encontro */
+  .nm{background:linear-gradient(180deg,#fff8e6,#fbf2dc);border:1px solid var(--gold);}
+  .nm .when{font-family:"Cinzel",serif;font-size:22px;color:var(--green);margin:2px 0;}
+  .nm .where{color:var(--ink-soft);font-style:italic;margin-bottom:10px;}
+  .nm .conf{font-size:14px;color:var(--ink-soft);margin-bottom:10px;}
+  .rsvp{display:flex;gap:8px;flex-wrap:wrap;}
+  .rsvp button{flex:1;min-width:90px;font-family:"Cinzel",serif;font-size:12px;cursor:pointer;border:1px solid var(--card-edge);background:#fffdf7;color:var(--ink-soft);padding:10px 8px;border-radius:7px;transition:.15s;}
+  .rsvp button.on{background:var(--green);color:#f5eeda;border-color:var(--green);}
+  .rsvp button.on.no{background:var(--oxblood);border-color:var(--oxblood);}
+  .rsvp button.on.maybe{background:var(--amber);border-color:var(--amber);color:#fff;}
 
   .rank{display:flex;align-items:center;gap:12px;padding:12px 6px;border-bottom:1px solid var(--line);}
   .rank:last-child{border-bottom:none;}
@@ -105,28 +103,37 @@
   .rank .meta{font-size:13px;color:var(--ink-soft);font-style:italic;}
   .rank .avg{font-family:"Cinzel",serif;font-size:21px;color:var(--amber);flex:none;text-align:right;}
   .rank .avg small{display:block;font-size:10px;letter-spacing:.1em;color:var(--ink-soft);font-style:normal;}
-  .rank.gold{background:radial-gradient(120% 100% at 0% 0%, rgba(169,130,31,.18), transparent 70%);
-    border:1px solid var(--gold);border-radius:10px;box-shadow:0 0 16px rgba(169,130,31,.22);}
+  .rank.gold{background:radial-gradient(120% 100% at 0% 0%, rgba(169,130,31,.18), transparent 70%);border:1px solid var(--gold);border-radius:10px;box-shadow:0 0 16px rgba(169,130,31,.22);}
 
   .beer{display:flex;align-items:center;gap:12px;padding:11px 6px;border-bottom:1px solid var(--line);}
   .beer:last-child{border-bottom:none;}
   .beer .body{flex:1;min-width:0;}
   .beer .bn{font-family:"Cinzel",serif;font-size:16px;color:var(--ink);font-weight:600;}
   .beer .bm{font-size:13px;color:var(--ink-soft);font-style:italic;}
-
   .img-pick{display:flex;align-items:center;gap:12px;margin-top:6px;}
-  .img-prev{width:60px;height:60px;border-radius:8px;border:1px dashed var(--card-edge);background:#fffdf7;
-    display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;overflow:hidden;flex:none;}
+  .img-prev{width:60px;height:60px;border-radius:8px;border:1px dashed var(--card-edge);background:#fffdf7;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;overflow:hidden;flex:none;}
   .img-prev img{width:100%;height:100%;object-fit:cover;}
   .filein{font-family:"EB Garamond",serif;font-size:15px;color:var(--ink-soft);}
 
-  .filters{display:flex;gap:10px;margin-bottom:14px;}
+  /* Encontros */
+  .enc{border:1px solid var(--card-edge);border-radius:10px;padding:14px;margin-bottom:12px;background:#fffdf7;}
+  .enc.up{border-color:var(--gold);background:linear-gradient(180deg,#fff8e6,#fffdf7);}
+  .enc .et{font-family:"Cinzel",serif;font-size:17px;color:var(--green);font-weight:600;}
+  .enc .ed{font-size:14px;color:var(--ink-soft);font-style:italic;margin-bottom:6px;}
+  .enc .winner{margin-top:8px;font-size:14px;color:var(--ink);}
+  .enc .winner b{color:var(--amber);font-family:"Cinzel",serif;}
+  .enc .who-list{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  .enc .adm{display:flex;gap:6px;margin-top:10px;}
+  .enc .adm button{font-family:"Cinzel",serif;font-size:11px;cursor:pointer;border:1px solid var(--card-edge);background:#fff;color:var(--ink-soft);padding:6px 10px;border-radius:6px;}
+  .enc .adm button.del{color:var(--oxblood);}
+
+  .filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .filters > div{flex:1;min-width:120px;}
   .entry{padding:11px 4px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;}
   .entry:last-child{border-bottom:none;}
   .entry .who{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.05em;color:#f5eeda;background:var(--green);padding:4px 9px;border-radius:20px;flex:none;}
   .entry .det{flex:1;min-width:0;}
   .entry .bn{font-weight:600;color:var(--ink);}
-  .entry .bm{font-size:13px;color:var(--ink-soft);font-style:italic;}
   .entry .note{font-size:15px;color:var(--ink);margin-top:2px;}
   .entry .en{font-family:"Cinzel",serif;color:var(--amber);font-size:17px;flex:none;}
   .x{background:none;border:none;color:var(--oxblood);cursor:pointer;font-size:16px;padding:2px 4px;flex:none;}
@@ -136,8 +143,7 @@
   .member .mn{font-size:17px;color:var(--ink);}
   .member .mc{font-size:13px;color:var(--ink-soft);font-style:italic;}
   .member .acts{display:flex;gap:6px;flex:none;}
-  .member .acts button{font-family:"Cinzel",serif;font-size:11px;cursor:pointer;border:1px solid var(--card-edge);
-    background:#fffdf7;color:var(--ink-soft);padding:6px 9px;border-radius:6px;}
+  .member .acts button{font-family:"Cinzel",serif;font-size:11px;cursor:pointer;border:1px solid var(--card-edge);background:#fffdf7;color:var(--ink-soft);padding:6px 9px;border-radius:6px;}
   .member .acts button.del{color:var(--oxblood);}
 
   .pwbox{background:#fff8e6;border:1px solid var(--gold);border-radius:9px;padding:14px;margin-top:14px;}
@@ -146,18 +152,77 @@
   .pwbox .acts{display:flex;gap:8px;flex-wrap:wrap;}
   .pwbox small{display:block;color:var(--ink-soft);font-style:italic;margin-top:8px;font-size:13px;}
 
+  /* Conquistas */
+  .badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+  .badge{border:1px solid var(--card-edge);border-radius:10px;padding:12px;background:#fffdf7;text-align:center;opacity:.5;filter:grayscale(.6);}
+  .badge.on{opacity:1;filter:none;border-color:var(--gold);background:linear-gradient(180deg,#fff8e6,#fffdf7);box-shadow:0 0 14px rgba(169,130,31,.18);}
+  .badge .ic{font-size:30px;line-height:1;}
+  .badge .bn{font-family:"Cinzel",serif;font-size:13px;color:var(--green);font-weight:600;margin:6px 0 2px;}
+  .badge .bd{font-size:12px;color:var(--ink-soft);}
+  .badge .pg{font-size:11px;color:var(--gold-deep);font-family:"Cinzel",serif;margin-top:4px;}
+  .fame{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line);}
+  .fame:last-child{border-bottom:none;}
+  .fame .ic{font-size:24px;flex:none;}
+  .fame .ft{font-family:"Cinzel",serif;font-size:14px;color:var(--green);}
+  .fame .fv{font-weight:600;color:var(--ink);}
+  .fame .fd{font-size:13px;color:var(--ink-soft);font-style:italic;}
+
+  /* Sobre (modal) */
+  #about{position:fixed;inset:0;z-index:130;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;
+    background:rgba(20,16,10,.55);overflow:auto;}
+  #about.open{display:flex;}
+  .about-box{max-width:600px;width:100%;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  .about-box img{width:90px;border-radius:12px;border:2px solid var(--gold);display:block;margin:0 auto 10px;}
+  .about-box h3{font-family:"Cinzel Decorative",serif;text-align:center;color:var(--green);margin:0 0 4px;font-size:22px;}
+  .about-box .ph{font-family:"Cinzel",serif;text-align:center;color:var(--amber);font-size:13px;letter-spacing:.04em;margin:0 0 16px;}
+  .about-box h4{font-family:"Cinzel",serif;color:var(--green);font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 6px;}
+  .about-box p{margin:0 0 8px;color:var(--ink);}
+  .about-box .close{margin-top:18px;}
+
   .empty{text-align:center;color:var(--ink-soft);font-style:italic;padding:24px 10px;}
   .gen-link{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-style:italic;text-decoration:underline;font-size:14px;font-family:inherit;margin-top:6px;}
   footer{text-align:center;color:#8a7858;font-size:13px;font-style:italic;margin-top:24px;}
-  #toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--oxblood);color:#fff;padding:11px 18px;
-    border-radius:8px;font-size:15px;max-width:90vw;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.25s;z-index:120;}
+  footer button{background:none;border:none;color:#8a7858;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:13px;}
+  #toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--oxblood);color:#fff;padding:11px 18px;border-radius:8px;font-size:15px;max-width:90vw;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.25s;z-index:140;}
   #toast.show{opacity:1;}
   .loading{text-align:center;color:var(--gold-deep);font-family:"Cinzel",serif;letter-spacing:.1em;padding:30px 10px;font-size:14px;}
+
+  /* Tesouraria */
+  .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .kpi{border:1px solid var(--card-edge);border-radius:9px;padding:12px;background:#fffdf7;}
+  .kpi .lab{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .kpi .val{font-family:"Cinzel",serif;font-size:21px;margin-top:3px;color:var(--ink);}
+  .kpi.big{grid-column:1/-1;background:linear-gradient(180deg,#fff8e6,#fbf2dc);border-color:var(--gold);}
+  .kpi.big .val{font-size:26px;color:var(--gold-deep);}
+  .pos{color:var(--green);} .neg{color:var(--oxblood);}
+  .fin-row{display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid var(--line);}
+  .fin-row:last-child{border-bottom:none;}
+  .fin-row .ic{width:30px;height:30px;border-radius:7px;flex:none;display:flex;align-items:center;justify-content:center;font-size:15px;font-family:"Cinzel",serif;}
+  .ic.rec{background:rgba(60,74,42,.14);color:var(--green);}
+  .ic.desp{background:rgba(125,42,37,.12);color:var(--oxblood);}
+  .ic.ap{background:rgba(169,130,31,.16);color:var(--gold-deep);}
+  .fin-row .body{flex:1;min-width:0;}
+  .fin-row .t1{font-weight:600;color:var(--ink);font-size:15px;}
+  .fin-row .t2{font-size:12px;color:var(--ink-soft);font-style:italic;}
+  .fin-row .amt{font-family:"Cinzel",serif;font-size:16px;flex:none;text-align:right;}
+  .pill{display:inline-block;font-family:"Cinzel",serif;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:20px;vertical-align:middle;}
+  .pill.pend{background:var(--amber);color:#fff;} .pill.pago{background:rgba(60,74,42,.15);color:var(--green);}
+  .mini{font-family:"Cinzel",serif;font-size:11px;cursor:pointer;border:1px solid var(--card-edge);background:#fffdf7;color:var(--ink-soft);padding:5px 9px;border-radius:6px;}
+  .mini.del{color:var(--oxblood);} .mini.go{color:var(--green);}
+  .st-row{border:1px solid var(--card-edge);border-radius:9px;padding:12px;margin-bottom:10px;background:#fffdf7;}
+  .st-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+  .st-name{font-family:"Cinzel",serif;font-size:16px;color:var(--ink);font-weight:600;}
+  .st-kind{font-family:"Cinzel",serif;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#f5eeda;background:var(--green-soft);padding:2px 7px;border-radius:20px;}
+  .st-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);margin:8px 0;}
+  .st-meta b{color:var(--ink);font-family:"Cinzel",serif;}
+  .st-acts{display:flex;gap:6px;flex-wrap:wrap;}
+  .op-box .row{margin-top:0;}
+  .op-sum{background:rgba(169,130,31,.1);border:1px solid var(--line);border-radius:7px;padding:10px 12px;font-family:"Cinzel",serif;color:var(--gold-deep);text-align:center;margin-top:12px;}
 </style>
 </head>
 <body>
 
-<!-- ============ PORTÃO ============ -->
+<!-- PORTÃO -->
 <div id="gate">
   <div class="gate-box">
     <img class="gate-logo" src="logo.png" alt="Sociedade do Malte">
@@ -179,34 +244,41 @@
       <button class="btn green" id="ga-enter">Entrar como administrador</button>
     </div>
     <div class="gate-err" id="gate-err"></div>
+    <button class="about-link" id="gate-about" style="margin-top:14px">Sobre a confraria</button>
   </div>
 </div>
 
-<!-- ============ APP ============ -->
+<!-- APP -->
 <div class="wrap" id="app" style="display:none">
   <header class="mast">
     <img class="mast-logo" src="logo.png" alt="Sociedade do Malte">
     <p class="creed">Uma cerveja para a todos governar</p>
+    <div><button class="about-link" id="open-about">Sobre a confraria</button></div>
     <div class="whoami"><span id="who-line"></span> &middot; <button id="logout">sair</button></div>
     <div class="rule"></div>
   </header>
 
   <div class="stats">
     <div class="stat"><b id="st-rotulos">·</b><small>Cervejas</small></div>
-    <div class="stat"><b id="st-deg">·</b><small>Degustações</small></div>
+    <div class="stat"><b id="st-deg">·</b><small>Degust.</small></div>
+    <div class="stat"><b id="st-enc">·</b><small>Encontros</small></div>
     <div class="stat"><b id="st-membros">·</b><small>Confrades</small></div>
   </div>
 
   <nav class="tabs">
     <button data-tab="ranking" class="active">Ranking</button>
     <button data-tab="registrar" data-role="member">Registrar</button>
+    <button data-tab="encontros">Encontros</button>
     <button data-tab="cervejas">Cervejas</button>
     <button data-tab="historico">Histórico</button>
+    <button data-tab="conquistas">Conquistas</button>
     <button data-tab="admin" data-role="admin">Admin</button>
+    <button data-tab="tesouraria" data-role="admin">Tesouraria</button>
   </nav>
 
   <!-- RANKING -->
   <section class="view active" id="ranking">
+    <div id="next-meeting"></div>
     <div class="card">
       <p class="eyebrow">O Tomo dos Grandes Rótulos</p>
       <h2 class="sec">Ranking da confraria</h2>
@@ -220,8 +292,10 @@
     <div class="card">
       <p class="eyebrow">Inscrever no Livro</p>
       <h2 class="sec">Registrar degustação</h2>
-      <p class="sec-sub">Escolha a cerveja do catálogo e dê sua nota.</p>
+      <p class="sec-sub">Vincule a um encontro, escolha a cerveja e dê sua nota.</p>
       <div class="as-who">Registrando como <b id="as-who-name">—</b></div>
+      <label for="f-encontro">Encontro</label>
+      <select id="f-encontro"></select>
       <label for="f-beer">Cerveja</label>
       <select id="f-beer"></select>
       <div class="score-wrap">
@@ -236,12 +310,35 @@
     </div>
   </section>
 
+  <!-- ENCONTROS -->
+  <section class="view" id="encontros">
+    <div class="card" id="enc-admin-card" style="display:none">
+      <p class="eyebrow">Convocação</p>
+      <h2 class="sec" id="enc-form-title">Agendar encontro</h2>
+      <p class="sec-sub">Defina quando e onde a confraria se reúne.</p>
+      <label for="e-title">Título</label>
+      <input type="text" id="e-title" placeholder="ex.: Conselho de Abril">
+      <div class="row">
+        <div><label for="e-date">Data</label><input type="date" id="e-date"></div>
+        <div><label for="e-loc">Local</label><input type="text" id="e-loc" placeholder="ex.: Dragão Verde"></div>
+      </div>
+      <button class="btn" id="e-save">Agendar encontro</button>
+      <button class="gen-link" id="e-cancel" style="display:none">cancelar edição</button>
+    </div>
+    <div class="card">
+      <p class="eyebrow">As Reuniões</p>
+      <h2 class="sec">Encontros da confraria</h2>
+      <p class="sec-sub">Próximos e passados, com a Cerveja da Noite de cada um.</p>
+      <div id="enc-list"></div>
+    </div>
+  </section>
+
   <!-- CERVEJAS -->
   <section class="view" id="cervejas">
     <div class="card">
       <p class="eyebrow">A Adega</p>
       <h2 class="sec">Catálogo de cervejas</h2>
-      <p class="sec-sub">Cadastre os rótulos com uma foto. Eles ficam disponíveis para degustação.</p>
+      <p class="sec-sub">Cadastre os rótulos com uma foto.</p>
       <label for="c-name">Nome da cerveja</label>
       <input type="text" id="c-name" placeholder="ex.: Stout do Condado">
       <div class="row">
@@ -249,10 +346,7 @@
         <div><label for="c-style">Estilo</label><input type="text" id="c-style" placeholder="ex.: Imperial Stout"></div>
       </div>
       <label>Imagem (pequena)</label>
-      <div class="img-pick">
-        <div class="img-prev" id="c-prev">&#127866;</div>
-        <input class="filein" type="file" id="c-image" accept="image/*">
-      </div>
+      <div class="img-pick"><div class="img-prev" id="c-prev">&#127866;</div><input class="filein" type="file" id="c-image" accept="image/*"></div>
       <button class="btn" id="c-add">Adicionar ao catálogo</button>
       <div id="beer-list" style="margin-top:16px"></div>
     </div>
@@ -263,12 +357,29 @@
     <div class="card">
       <p class="eyebrow">As Crônicas</p>
       <h2 class="sec">Histórico de degustações</h2>
-      <p class="sec-sub">Filtre por confrade ou por cerveja.</p>
+      <p class="sec-sub">Filtre por confrade, cerveja ou encontro.</p>
       <div class="filters">
-        <div style="flex:1"><select id="filt-membro"></select></div>
-        <div style="flex:1"><select id="filt-beer"></select></div>
+        <div><select id="filt-membro"></select></div>
+        <div><select id="filt-beer"></select></div>
+        <div><select id="filt-encontro"></select></div>
       </div>
       <div id="hist-list"></div>
+    </div>
+  </section>
+
+  <!-- CONQUISTAS -->
+  <section class="view" id="conquistas">
+    <div class="card">
+      <p class="eyebrow">Os Selos da Confraria</p>
+      <h2 class="sec" id="conq-title">Suas conquistas</h2>
+      <p class="sec-sub" id="conq-sub">Selos que você desbravou — e os que ainda aguardam.</p>
+      <div class="badges" id="badge-grid"></div>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Crônicas de Honra</p>
+      <h2 class="sec">Salão da Fama</h2>
+      <p class="sec-sub">Os feitos notáveis do clube.</p>
+      <div id="fame-list"></div>
     </div>
   </section>
 
@@ -294,7 +405,117 @@
     </div>
   </section>
 
-  <footer>Livro de Degustações &middot; histórico compartilhado da confraria</footer>
+  <!-- TESOURARIA -->
+  <section class="view" id="tesouraria">
+    <div class="card">
+      <p class="eyebrow">Cofre da Confraria</p>
+      <h2 class="sec">Tesouraria</h2>
+      <p class="sec-sub">Caixa, estoque e custos do clube — visível só para o administrador.</p>
+      <div class="kpis" id="kpis"></div>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Livro-Caixa</p>
+      <h2 class="sec">Novo lançamento</h2>
+      <p class="sec-sub">Receitas, despesas e aportes. Marque como pendente para virar conta a pagar.</p>
+      <div class="row">
+        <div><label for="t-kind">Tipo</label><select id="t-kind">
+          <option value="receita">Receita</option><option value="despesa">Despesa</option><option value="aporte">Aporte</option></select></div>
+        <div><label for="t-amount">Valor (R$)</label><input type="text" id="t-amount" inputmode="decimal" placeholder="0,00"></div>
+      </div>
+      <label for="t-cat">Categoria</label>
+      <input type="text" id="t-cat" list="cat-list" placeholder="ex.: Aluguel do espaço">
+      <datalist id="cat-list"><option>Compra de cerveja</option><option>Insumos de porção</option><option>Aluguel do espaço</option><option>Equipamentos</option><option>Contribuição mensal</option><option>Aporte de membro</option><option>Venda de cerveja</option><option>Venda de porção</option><option>Outros</option></datalist>
+      <label for="t-desc">Descrição (opcional)</label>
+      <input type="text" id="t-desc" placeholder="Detalhe do lançamento">
+      <div class="row">
+        <div><label for="t-method">Forma de pagamento</label><select id="t-method">
+          <option>Dinheiro</option><option>Pix</option><option>Cartão de débito</option><option>Cartão de crédito</option><option>Transferência</option><option>Outro</option></select></div>
+        <div><label for="t-status">Situação</label><select id="t-status"><option value="pago">Pago</option><option value="pendente">Pendente</option></select></div>
+      </div>
+      <div class="row">
+        <div><label for="t-date">Data</label><input type="date" id="t-date"></div>
+        <div id="t-due-wrap" style="display:none"><label for="t-due">Vencimento</label><input type="date" id="t-due"></div>
+      </div>
+      <button class="btn" id="t-add">Lançar no caixa</button>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Contas a Pagar</p>
+      <h2 class="sec">Pendências</h2>
+      <p class="sec-sub">Despesas em aberto, por vencimento.</p>
+      <div id="payables"></div>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Adega & Cozinha</p>
+      <h2 class="sec">Estoque e preços</h2>
+      <p class="sec-sub">Cervejas, porções e insumos. Comprar lança despesa e repõe; vender lança receita e baixa.</p>
+      <label for="s-name">Nome do item</label>
+      <input type="text" id="s-name" placeholder="ex.: IPA de Mordor (lata 473ml)">
+      <div class="row">
+        <div><label for="s-kind">Tipo</label><select id="s-kind">
+          <option value="cerveja">Cerveja</option><option value="porcao">Porção</option><option value="insumo">Insumo</option><option value="outro">Outro</option></select></div>
+        <div><label for="s-qty">Estoque inicial</label><input type="text" id="s-qty" inputmode="decimal" placeholder="0"></div>
+      </div>
+      <div class="row">
+        <div><label for="s-cost">Custo unit. (R$)</label><input type="text" id="s-cost" inputmode="decimal" placeholder="0,00"></div>
+        <div><label for="s-price">Preço praticado (R$)</label><input type="text" id="s-price" inputmode="decimal" placeholder="0,00"></div>
+      </div>
+      <button class="btn" id="s-add">Adicionar item</button>
+      <button class="gen-link" id="s-cancel" style="display:none">cancelar edição</button>
+      <div id="stock-list" style="margin-top:16px"></div>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Cardápio de Porções</p>
+      <h2 class="sec">Margem das porções</h2>
+      <p class="sec-sub">Custo, preço e lucro por porção oferecida.</p>
+      <div id="porcoes-list"></div>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Movimento do Caixa</p>
+      <h2 class="sec">Lançamentos</h2>
+      <p class="sec-sub">Todo o histórico financeiro do clube.</p>
+      <div class="filters">
+        <div><select id="fin-filt-kind"><option value="">Todos os tipos</option><option value="receita">Receitas</option><option value="despesa">Despesas</option><option value="aporte">Aportes</option></select></div>
+        <div><select id="fin-filt-status"><option value="">Todas as situações</option><option value="pago">Pagos</option><option value="pendente">Pendentes</option></select></div>
+      </div>
+      <div id="fin-list"></div>
+    </div>
+  </section>
+
+  <footer>Livro de Degustações &middot; histórico compartilhado da confraria<br>
+    <button id="foot-about">Sobre a confraria</button></footer>
+</div>
+
+<!-- SOBRE -->
+<div id="about">
+  <div class="about-box">
+    <img src="logo.png" alt="Sociedade do Malte">
+    <h3>Sociedade do Malte</h3>
+    <p class="ph">Uma cerveja para a todos governar</p>
+    <p>Reza a lenda que, numa noite de lua cheia, um punhado de viajantes sedentos jurou lealdade não a uma coroa, mas a uma boa caneca. Assim nasceu a Sociedade do Malte: uma confraria que, uma vez por mês, reúne os seus à mesma mesa para degustar, debater e cronicar cervejas como quem registra grandes feitos.</p>
+    <h4>Como funciona</h4>
+    <p>A cada lua, marcamos um <b>Encontro</b>. Nele, as cervejas da noite entram no catálogo e cada confrade concede sua nota de 0 a 10. As médias formam o <b>Ranking</b>, e a melhor avaliada de cada noite é coroada a <b>Cerveja da Noite</b>.</p>
+    <h4>O Anel (as notas)</h4>
+    <p>A nota vai de 0 a 10, registrada em anéis. Avalie com honestidade: nem todo malte é precioso, e a sinceridade é o que mantém o tomo digno de confiança.</p>
+    <h4>As regras da mesa</h4>
+    <p>Beba com moderação e volte para casa em segurança. Respeite o gosto alheio — há nobreza tanto numa Stout do Condado quanto numa Weiss de Lórien. E lembre-se: quem traz uma cerveja nova para a mesa engrandece a confraria.</p>
+    <button class="btn green close" id="about-close">Fechar</button>
+  </div>
+</div>
+
+<!-- OPERAÇÃO DE ESTOQUE (comprar/vender) -->
+<div id="op" style="position:fixed;inset:0;z-index:135;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;background:rgba(20,16,10,.55);overflow:auto;">
+  <div class="about-box op-box">
+    <h3 id="op-title" style="font-family:'Cinzel Decorative',serif;text-align:center;color:var(--green);margin:0 0 14px;font-size:20px;">Operação</h3>
+    <div id="op-fields"></div>
+    <div class="op-sum" id="op-sum"></div>
+    <button class="btn" id="op-confirm">Confirmar</button>
+    <button class="btn green close" id="op-cancel" style="margin-top:8px">Cancelar</button>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -302,35 +523,41 @@
 <script>
 (function(){
   "use strict";
-  var data={members:[],beers:[],tastings:[]};
-  var me=null, token=null, pendingImage=null;
+  var data={members:[],beers:[],encontros:[],tastings:[],attendance:[]};
+  var fin={entries:[],items:[],moves:[]};
+  var me=null, token=null, pendingImage=null, editEncId=null;
+  var MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 
-  var ls={ get:function(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}},
+  var ls={get:function(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}},
     set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}},
-    del:function(k){try{localStorage.removeItem(k);}catch(e){}} };
+    del:function(k){try{localStorage.removeItem(k);}catch(e){}}};
 
-  async function api(method, body){
+  async function api(method,body){
     var headers={}; if(method==='POST') headers['Content-Type']='application/json';
     if(token) headers['Authorization']='Bearer '+token;
     var res=await fetch('/api/data',{method:method,headers:headers,body:body?JSON.stringify(body):undefined});
     var json=await res.json().catch(function(){return {};});
-    if(res.status===401 && token){ doLogout(); }
+    if(res.status===401&&token){ doLogout(); }
     if(!res.ok) throw new Error(json.error||'Falha na comunicação com o servidor.');
     return json;
   }
-  function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
-    clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show');},3800);}
-  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show');},3800);}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function rings(v){var f=Math.round(v/2),s='';for(var i=0;i<5;i++){s+=i<f?'&#9737;':"<span class='off'>&#9737;</span>";}return s;}
   function memberName(id){var m=data.members.find(function(x){return x.id===id;});return m?m.name:'—';}
   function beerById(id){return data.beers.find(function(b){return b.id===id;});}
-  function thumb(b){ if(b&&b.image) return "<img class='thumb' src='"+b.image+"' alt=''>";
-    return "<div class='thumb ph'>&#127866;</div>"; }
+  function encById(id){return data.encontros.find(function(e){return e.id===id;});}
+  function thumb(b){return (b&&b.image)?"<img class='thumb' src='"+b.image+"' alt=''>":"<div class='thumb ph'>&#127866;</div>";}
+  function todayStr(){var n=new Date();return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');}
+  function fmtDate(d){if(!d) return 'data a definir';var p=d.split('-');return Number(p[2])+' de '+MESES[Number(p[1])-1]+' de '+p[0];}
+  function fmtDateShort(d){if(!d) return '—';var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0];}
+  function brl(v){return (Number(v)||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+  function parseNum(v){if(v==null)return NaN;var s=String(v).trim().replace(/\s/g,'').replace(/r\$/i,'');
+    if(s.indexOf(',')>=0)s=s.replace(/\./g,'').replace(',','.');return Number(s);}
 
   // ---------- Portão ----------
-  document.getElementById('tg-membro').onclick=function(){ swMode('membro'); };
-  document.getElementById('tg-admin').onclick=function(){ swMode('admin'); };
+  document.getElementById('tg-membro').onclick=function(){swMode('membro');};
+  document.getElementById('tg-admin').onclick=function(){swMode('admin');};
   function swMode(m){
     document.getElementById('tg-membro').classList.toggle('active',m==='membro');
     document.getElementById('tg-admin').classList.toggle('active',m==='admin');
@@ -338,272 +565,529 @@
     document.getElementById('form-admin').style.display=m==='admin'?'block':'none';
     document.getElementById('gate-err').textContent='';
   }
-  function showGate(){ document.getElementById('app').style.display='none';
-    document.getElementById('gate').style.display='flex'; }
-  function gateErr(m){ document.getElementById('gate-err').textContent=m; }
-
-  document.getElementById('g-enter').onclick=function(){ loginMember(); };
+  function showGate(){document.getElementById('app').style.display='none';document.getElementById('gate').style.display='flex';}
+  function gateErr(m){document.getElementById('gate-err').textContent=m;}
+  document.getElementById('g-enter').onclick=function(){loginMember();};
   document.getElementById('g-pass').addEventListener('keydown',function(e){if(e.key==='Enter')loginMember();});
-  document.getElementById('ga-enter').onclick=function(){ loginAdmin(); };
+  document.getElementById('ga-enter').onclick=function(){loginAdmin();};
   document.getElementById('ga-pass').addEventListener('keydown',function(e){if(e.key==='Enter')loginAdmin();});
-
   async function loginMember(){
-    var name=document.getElementById('g-name').value.trim();
-    var pass=document.getElementById('g-pass').value;
-    if(!name||!pass){ gateErr('Preencha nome e senha.'); return; }
-    try{ var r=await api('POST',{action:'loginMember',payload:{name:name,password:pass}}); await setSession(r); }
-    catch(e){ gateErr(e.message); }
+    var name=document.getElementById('g-name').value.trim(),pass=document.getElementById('g-pass').value;
+    if(!name||!pass){gateErr('Preencha nome e senha.');return;}
+    try{var r=await api('POST',{action:'loginMember',payload:{name:name,password:pass}});await setSession(r);}catch(e){gateErr(e.message);}
   }
   async function loginAdmin(){
     var pass=document.getElementById('ga-pass').value;
-    if(!pass){ gateErr('Informe a senha de administrador.'); return; }
-    try{ var r=await api('POST',{action:'loginAdmin',payload:{password:pass}}); await setSession(r); }
-    catch(e){ gateErr(e.message); }
+    if(!pass){gateErr('Informe a senha de administrador.');return;}
+    try{var r=await api('POST',{action:'loginAdmin',payload:{password:pass}});await setSession(r);}catch(e){gateErr(e.message);}
   }
-  async function setSession(r){
-    token=r.token; me=r.me; ls.set('malte_token',token); ls.set('malte_me',me);
-    document.getElementById('g-pass').value=''; document.getElementById('ga-pass').value='';
-    await refresh(); enterApp();
-  }
-  function doLogout(){ token=null; me=null; ls.del('malte_token'); ls.del('malte_me'); showGate(); }
+  async function setSession(r){token=r.token;me=r.me;ls.set('malte_token',token);ls.set('malte_me',me);
+    document.getElementById('g-pass').value='';document.getElementById('ga-pass').value='';await refresh();enterApp();}
+  function doLogout(){token=null;me=null;ls.del('malte_token');ls.del('malte_me');showGate();}
   document.getElementById('logout').onclick=doLogout;
 
   function enterApp(){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('app').style.display='block';
+    document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';
     var isAdmin=me.role==='admin';
-    document.getElementById('who-line').innerHTML = isAdmin
-      ? "<b>Administrador</b><span class='tag'>admin</span>"
-      : "Confrade: <b>"+esc(me.name)+"</b>";
+    document.getElementById('who-line').innerHTML=isAdmin?"<b>Administrador</b><span class='tag'>admin</span>":"Confrade: <b>"+esc(me.name)+"</b>";
     document.getElementById('as-who-name').textContent=me.name||'—';
-    // mostra/esconde abas por papel
-    document.querySelectorAll('nav.tabs button').forEach(function(b){
-      var role=b.getAttribute('data-role');
-      b.style.display = (!role || role===me.role) ? '' : 'none';
-    });
-    // garante aba ativa válida
+    document.getElementById('enc-admin-card').style.display=isAdmin?'block':'none';
+    document.querySelectorAll('nav.tabs button').forEach(function(b){var role=b.getAttribute('data-role');b.style.display=(!role||role===me.role)?'':'none';});
     var active=document.querySelector('nav.tabs button.active');
-    if(active && active.style.display==='none'){ document.querySelector("nav.tabs button[data-tab='ranking']").click(); }
+    if(active&&active.style.display==='none') document.querySelector("nav.tabs button[data-tab='ranking']").click();
     renderAll();
+    if(isAdmin) finRefresh();
   }
-  async function refresh(){ data=await api('GET'); }
+  async function refresh(){data=await api('GET');}
+  async function finRefresh(){try{fin=await api('POST',{action:'finState'});renderTesouraria();}catch(e){/* silencioso */}}
+
+  // ---------- Sobre ----------
+  function openAbout(){document.getElementById('about').classList.add('open');}
+  function closeAbout(){document.getElementById('about').classList.remove('open');}
+  document.getElementById('gate-about').onclick=openAbout;
+  document.getElementById('open-about').onclick=openAbout;
+  document.getElementById('foot-about').onclick=openAbout;
+  document.getElementById('about-close').onclick=closeAbout;
+  document.getElementById('about').addEventListener('click',function(e){if(e.target===this)closeAbout();});
 
   // ---------- Render ----------
   function renderStats(){
     document.getElementById('st-rotulos').textContent=data.beers.length;
     document.getElementById('st-deg').textContent=data.tastings.length;
+    document.getElementById('st-enc').textContent=data.encontros.length;
     document.getElementById('st-membros').textContent=data.members.length;
   }
-  function renderRanking(){
-    var g={}; data.tastings.forEach(function(t){ if(!g[t.beerId])g[t.beerId]={sum:0,n:0};
-      g[t.beerId].sum+=Number(t.score); g[t.beerId].n++; });
-    var arr=Object.keys(g).map(function(id){var b=beerById(id)||{name:'(removida)'};
-      return {beer:b,avg:g[id].sum/g[id].n,n:g[id].n};})
+  function avgByBeer(tastings){
+    var g={}; tastings.forEach(function(t){if(!g[t.beerId])g[t.beerId]={sum:0,n:0};g[t.beerId].sum+=Number(t.score);g[t.beerId].n++;});
+    return Object.keys(g).map(function(id){return {beer:beerById(id)||{name:'(removida)'},avg:g[id].sum/g[id].n,n:g[id].n};})
       .sort(function(a,b){return b.avg-a.avg||b.n-a.n;});
+  }
+  function renderRanking(){
+    var arr=avgByBeer(data.tastings);
     var el=document.getElementById('rank-list');
-    if(arr.length===0){ el.innerHTML="<p class='empty'>Nenhuma cerveja avaliada ainda.</p>"; return; }
-    el.innerHTML=arr.map(function(x,i){
-      var meta=[x.beer.brewery,x.beer.style].filter(Boolean).join(' &middot; ');
-      return "<div class='rank"+(i===0?' gold':'')+"'>"+
-        "<div class='pos'>"+(i===0?'&#9737;':(i+1))+"</div>"+thumb(x.beer)+
+    if(arr.length===0){el.innerHTML="<p class='empty'>Nenhuma cerveja avaliada ainda.</p>";return;}
+    el.innerHTML=arr.map(function(x,i){var meta=[x.beer.brewery,x.beer.style].filter(Boolean).join(' &middot; ');
+      return "<div class='rank"+(i===0?' gold':'')+"'><div class='pos'>"+(i===0?'&#9737;':(i+1))+"</div>"+thumb(x.beer)+
         "<div class='body'><div class='name'>"+esc(x.beer.name)+"</div><div class='meta'>"+(meta||'—')+" &middot; "+x.n+" "+(x.n===1?'voto':'votos')+"</div></div>"+
-        "<div class='avg'>"+x.avg.toFixed(1)+"<small>MÉDIA /10</small></div></div>";
-    }).join('');
+        "<div class='avg'>"+x.avg.toFixed(1)+"<small>MÉDIA /10</small></div></div>";}).join('');
+  }
+  function defaultEncontroId(){
+    var today=todayStr();
+    var past=data.encontros.filter(function(e){return e.date&&e.date<=today;}).sort(function(a,b){return b.date.localeCompare(a.date);});
+    if(past.length) return past[0].id;
+    var up=data.encontros.filter(function(e){return e.date&&e.date>today;}).sort(function(a,b){return a.date.localeCompare(b.date);});
+    return up.length?up[0].id:'';
   }
   function renderRegistrar(){
-    var sel=document.getElementById('f-beer'), cur=sel.value;
-    if(data.beers.length===0){ sel.innerHTML="<option value=''>— cadastre uma cerveja na aba Cervejas —</option>"; }
-    else { sel.innerHTML=data.beers.map(function(b){
-      var m=[b.brewery,b.style].filter(Boolean).join(' · ');
-      return "<option value='"+b.id+"'>"+esc(b.name)+(m?" ("+esc(m)+")":'')+"</option>"; }).join(''); }
-    if(cur) sel.value=cur;
+    var es=document.getElementById('f-encontro'),cur=es.value;
+    es.innerHTML="<option value=''>— sem encontro —</option>"+data.encontros.map(function(e){
+      return "<option value='"+e.id+"'>"+esc(e.title)+" ("+fmtDate(e.date)+")</option>";}).join('');
+    es.value=cur||defaultEncontroId();
+    var sel=document.getElementById('f-beer'),curb=sel.value;
+    if(data.beers.length===0) sel.innerHTML="<option value=''>— cadastre uma cerveja na aba Cervejas —</option>";
+    else sel.innerHTML=data.beers.map(function(b){var m=[b.brewery,b.style].filter(Boolean).join(' · ');
+      return "<option value='"+b.id+"'>"+esc(b.name)+(m?" ("+esc(m)+")":'')+"</option>";}).join('');
+    if(curb) sel.value=curb;
+  }
+  function renderNextMeeting(){
+    var el=document.getElementById('next-meeting');
+    var today=todayStr();
+    var up=data.encontros.filter(function(e){return e.date&&e.date>=today;}).sort(function(a,b){return a.date.localeCompare(b.date);});
+    var e=up[0];
+    if(!e){ el.innerHTML="<div class='card nm'><p class='eyebrow'>O Próximo Concílio</p><p class='empty'>Nenhum encontro agendado."+
+      (me&&me.role==='admin'?" Agende um na aba Encontros.":"")+"</p></div>"; return; }
+    var att=data.attendance.filter(function(a){return a.encontroId===e.id;});
+    var sim=att.filter(function(a){return a.status==='sim';});
+    var mine=att.find(function(a){return me&&me.role==='member'&&a.memberId===me.id;});
+    var st=mine?mine.status:'';
+    var confNames=sim.map(function(a){return esc(memberName(a.memberId));}).join(', ');
+    var rsvp = (me&&me.role==='member') ?
+      "<div class='rsvp'>"+
+        "<button data-rsvp='sim' class='"+(st==='sim'?'on':'')+"'>Confirmar</button>"+
+        "<button data-rsvp='talvez' class='"+(st==='talvez'?'on maybe':'')+"'>Talvez</button>"+
+        "<button data-rsvp='nao' class='"+(st==='nao'?'on no':'')+"'>Não vou</button>"+
+      "</div>" : "";
+    el.innerHTML="<div class='card nm'><p class='eyebrow'>O Próximo Concílio</p>"+
+      "<div class='et' style=\"font-family:'Cinzel';color:var(--green);font-size:17px;font-weight:600\">"+esc(e.title)+"</div>"+
+      "<div class='when'>"+fmtDate(e.date)+"</div>"+
+      (e.location?"<div class='where'>"+esc(e.location)+"</div>":"")+
+      "<div class='conf'>"+sim.length+" confirmado"+(sim.length===1?'':'s')+(confNames?": "+confNames:'')+"</div>"+rsvp+"</div>";
+    el.querySelectorAll('[data-rsvp]').forEach(function(b){b.onclick=function(){act({action:'rsvp',payload:{encontroId:e.id,status:b.getAttribute('data-rsvp')}});};});
   }
   function renderBeers(){
     var counts={}; data.tastings.forEach(function(t){counts[t.beerId]=(counts[t.beerId]||0)+1;});
-    var isAdmin=me&&me.role==='admin';
-    var el=document.getElementById('beer-list');
-    if(data.beers.length===0){ el.innerHTML="<p class='empty'>Catálogo vazio. Adicione a primeira cerveja.</p>"; return; }
-    el.innerHTML=data.beers.map(function(b){var c=counts[b.id]||0;
-      var meta=[b.brewery,b.style].filter(Boolean).join(' &middot; ');
-      return "<div class='beer'>"+thumb(b)+
-        "<div class='body'><div class='bn'>"+esc(b.name)+"</div><div class='bm'>"+(meta||'—')+" &middot; "+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
-        (isAdmin?"<button class='x' data-delb='"+b.id+"' title='Remover'>&times;</button>":"")+"</div>";
+    var isAdmin=me&&me.role==='admin';var el=document.getElementById('beer-list');
+    if(data.beers.length===0){el.innerHTML="<p class='empty'>Catálogo vazio. Adicione a primeira cerveja.</p>";return;}
+    el.innerHTML=data.beers.map(function(b){var c=counts[b.id]||0;var meta=[b.brewery,b.style].filter(Boolean).join(' &middot; ');
+      return "<div class='beer'>"+thumb(b)+"<div class='body'><div class='bn'>"+esc(b.name)+"</div><div class='bm'>"+(meta||'—')+" &middot; "+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
+        (isAdmin?"<button class='x' data-delb='"+b.id+"' title='Remover'>&times;</button>":"")+"</div>";}).join('');
+    el.querySelectorAll('[data-delb]').forEach(function(btn){btn.onclick=function(){if(confirm('Remover esta cerveja? As degustações dela também serão apagadas.'))act({action:'deleteBeer',payload:{id:btn.getAttribute('data-delb')}});};});
+  }
+  function renderEncontros(){
+    var el=document.getElementById('enc-list');var today=todayStr();var isAdmin=me&&me.role==='admin';
+    if(data.encontros.length===0){el.innerHTML="<p class='empty'>Nenhum encontro registrado ainda.</p>";return;}
+    el.innerHTML=data.encontros.map(function(e){
+      var up=e.date&&e.date>=today;
+      var att=data.attendance.filter(function(a){return a.encontroId===e.id;});
+      var sim=att.filter(function(a){return a.status==='sim';}).map(function(a){return esc(memberName(a.memberId));});
+      var ts=data.tastings.filter(function(t){return t.encontroId===e.id;});
+      var rank=avgByBeer(ts);var win=rank[0];
+      var mine=att.find(function(a){return me&&me.role==='member'&&a.memberId===me.id;});var st=mine?mine.status:'';
+      var rsvp=(up&&me&&me.role==='member')?"<div class='rsvp' style='margin-top:8px'>"+
+        "<button data-er='sim' data-eid='"+e.id+"' class='"+(st==='sim'?'on':'')+"'>Confirmar</button>"+
+        "<button data-er='talvez' data-eid='"+e.id+"' class='"+(st==='talvez'?'on maybe':'')+"'>Talvez</button>"+
+        "<button data-er='nao' data-eid='"+e.id+"' class='"+(st==='nao'?'on no':'')+"'>Não vou</button></div>":"";
+      return "<div class='enc"+(up?' up':'')+"'>"+
+        "<div class='et'>"+esc(e.title)+(up?" · próximo":"")+"</div>"+
+        "<div class='ed'>"+fmtDate(e.date)+(e.location?" &middot; "+esc(e.location):"")+"</div>"+
+        (win?"<div class='winner'>&#9737; Cerveja da Noite: <b>"+esc(win.beer.name)+"</b> ("+win.avg.toFixed(1)+") &middot; "+ts.length+" degustações</div>":
+          "<div class='winner' style='color:var(--ink-soft);font-style:italic'>Sem degustações registradas.</div>")+
+        (sim.length?"<div class='who-list'>Presentes: "+sim.join(', ')+"</div>":"")+rsvp+
+        (isAdmin?"<div class='adm'><button data-edit='"+e.id+"'>Editar</button><button class='del' data-dele='"+e.id+"'>Remover</button></div>":"")+
+      "</div>";
     }).join('');
-    el.querySelectorAll('[data-delb]').forEach(function(btn){
-      btn.onclick=function(){ if(confirm('Remover esta cerveja? As degustações dela também serão apagadas.'))
-        act({action:'deleteBeer',payload:{id:btn.getAttribute('data-delb')}}); };
-    });
+    el.querySelectorAll('[data-er]').forEach(function(b){b.onclick=function(){act({action:'rsvp',payload:{encontroId:b.getAttribute('data-eid'),status:b.getAttribute('data-er')}});};});
+    el.querySelectorAll('[data-dele]').forEach(function(b){b.onclick=function(){if(confirm('Remover este encontro? As degustações ficam sem encontro, mas não são apagadas.'))act({action:'deleteEncontro',payload:{id:b.getAttribute('data-dele')}});};});
+    el.querySelectorAll('[data-edit]').forEach(function(b){b.onclick=function(){startEditEncontro(b.getAttribute('data-edit'));};});
   }
   function renderHistFilters(){
     var fm=document.getElementById('filt-membro'),c1=fm.value;
-    fm.innerHTML="<option value=''>Todos os confrades</option>"+data.members.map(function(m){
-      return "<option value='"+m.id+"'>"+esc(m.name)+"</option>";}).join(''); fm.value=c1;
+    fm.innerHTML="<option value=''>Todos os confrades</option>"+data.members.map(function(m){return "<option value='"+m.id+"'>"+esc(m.name)+"</option>";}).join('');fm.value=c1;
     var fb=document.getElementById('filt-beer'),c2=fb.value;
-    fb.innerHTML="<option value=''>Todas as cervejas</option>"+data.beers.map(function(b){
-      return "<option value='"+b.id+"'>"+esc(b.name)+"</option>";}).join(''); fb.value=c2;
+    fb.innerHTML="<option value=''>Todas as cervejas</option>"+data.beers.map(function(b){return "<option value='"+b.id+"'>"+esc(b.name)+"</option>";}).join('');fb.value=c2;
+    var fe=document.getElementById('filt-encontro'),c3=fe.value;
+    fe.innerHTML="<option value=''>Todos os encontros</option>"+data.encontros.map(function(e){return "<option value='"+e.id+"'>"+esc(e.title)+"</option>";}).join('');fe.value=c3;
   }
   function renderHistory(){
-    var fm=document.getElementById('filt-membro').value, fb=document.getElementById('filt-beer').value;
-    var list=data.tastings.filter(function(t){return (!fm||t.memberId===fm)&&(!fb||t.beerId===fb);});
+    var fm=document.getElementById('filt-membro').value,fb=document.getElementById('filt-beer').value,fe=document.getElementById('filt-encontro').value;
+    var list=data.tastings.filter(function(t){return (!fm||t.memberId===fm)&&(!fb||t.beerId===fb)&&(!fe||t.encontroId===fe);});
     var el=document.getElementById('hist-list');
-    if(list.length===0){ el.innerHTML="<p class='empty'>Nada registrado para este filtro.</p>"; return; }
+    if(list.length===0){el.innerHTML="<p class='empty'>Nada registrado para este filtro.</p>";return;}
     var canDelAll=me&&me.role==='admin';
     el.innerHTML=list.map(function(t){var b=beerById(t.beerId)||{name:'(removida)'};
       var canDel=canDelAll||(me&&me.role==='member'&&me.id===t.memberId);
       return "<div class='entry'><span class='who'>"+esc(memberName(t.memberId))+"</span>"+thumb(b)+
-        "<div class='det'><div class='bn'>"+esc(b.name)+"</div>"+
-        (t.notes?"<div class='note'>"+esc(t.notes)+"</div>":'')+"</div>"+
+        "<div class='det'><div class='bn'>"+esc(b.name)+"</div>"+(t.notes?"<div class='note'>"+esc(t.notes)+"</div>":'')+"</div>"+
         "<div class='en'>"+Number(t.score).toFixed(1)+"</div>"+
-        (canDel?"<button class='x' data-del='"+t.id+"' title='Remover'>&times;</button>":"")+"</div>";
-    }).join('');
-    el.querySelectorAll('[data-del]').forEach(function(b){
-      b.onclick=function(){ act({action:'deleteTasting',payload:{id:b.getAttribute('data-del')}}); };
-    });
+        (canDel?"<button class='x' data-del='"+t.id+"' title='Remover'>&times;</button>":"")+"</div>";}).join('');
+    el.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){act({action:'deleteTasting',payload:{id:b.getAttribute('data-del')}});};});
   }
+
+  // ---------- Conquistas ----------
+  function statsForMember(id){
+    var ts=data.tastings.filter(function(t){return t.memberId===id;});
+    var distinct={},styles={}; ts.forEach(function(t){distinct[t.beerId]=1;var b=beerById(t.beerId);if(b&&b.style)styles[b.style.toLowerCase()]=1;});
+    var notes=ts.filter(function(t){return t.notes&&t.notes.length;}).length;
+    var added=data.beers.filter(function(b){return b.createdBy===id;}).length;
+    var attend=data.attendance.filter(function(a){return a.memberId===id&&a.status==='sim';}).length;
+    var avg=ts.length?ts.reduce(function(s,t){return s+Number(t.score);},0)/ts.length:null;
+    return {count:ts.length,distinct:Object.keys(distinct).length,styles:Object.keys(styles).length,notes:notes,added:added,attend:attend,avg:avg};
+  }
+  function badgesFor(id){var s=statsForMember(id);return [
+    {ic:'&#127866;',n:'Primeiro Gole',d:'Registrou a primeira degustação.',c:Math.min(s.count,1),t:1},
+    {ic:'&#9737;',n:'Portador do Anel',d:'Avaliou 10 rótulos.',c:Math.min(s.count,10),t:10},
+    {ic:'&#129518;',n:'Explorador da Comarca',d:'Provou 8 cervejas diferentes.',c:Math.min(s.distinct,8),t:8},
+    {ic:'&#127863;',n:'Sommelier',d:'Avaliou 5 estilos distintos.',c:Math.min(s.styles,5),t:5},
+    {ic:'&#127867;',n:'Mestre da Adega',d:'Adicionou 5 cervejas ao catálogo.',c:Math.min(s.added,5),t:5},
+    {ic:'&#9999;',n:'Voz da Confraria',d:'Escreveu notas em 5 degustações.',c:Math.min(s.notes,5),t:5},
+    {ic:'&#127956;',n:'Presença de Pedra',d:'Confirmou presença em 3 encontros.',c:Math.min(s.attend,3),t:3},
+  ];}
+  function renderConquistas(){
+    var grid=document.getElementById('badge-grid');
+    if(me&&me.role==='member'){
+      document.getElementById('conq-title').textContent='Suas conquistas';
+      document.getElementById('conq-sub').textContent='Selos que você desbravou — e os que ainda aguardam.';
+      var bs=badgesFor(me.id);
+      grid.innerHTML=bs.map(function(b){var on=b.c>=b.t;
+        return "<div class='badge"+(on?' on':'')+"'><div class='ic'>"+b.ic+"</div><div class='bn'>"+b.n+"</div><div class='bd'>"+b.d+"</div>"+
+          (on?"<div class='pg'>conquistado</div>":"<div class='pg'>"+b.c+"/"+b.t+"</div>")+"</div>";}).join('');
+    } else {
+      document.getElementById('conq-title').textContent='Conquistas dos confrades';
+      document.getElementById('conq-sub').textContent='Os selos são individuais — entre como confrade para ver os seus.';
+      grid.innerHTML="<p class='empty' style='grid-column:1/-1'>Visível para cada confrade no seu próprio acesso.</p>";
+    }
+    renderFame();
+  }
+  function renderFame(){
+    var el=document.getElementById('fame-list');var items=[];
+    var rank=avgByBeer(data.tastings);
+    if(rank.length) items.push({ic:'&#9737;',t:'Cerveja da Terra-média',v:rank[0].beer.name,d:'média '+rank[0].avg.toFixed(1)+' /10'});
+    // por membro
+    var perM={}; data.tastings.forEach(function(t){if(!perM[t.memberId])perM[t.memberId]={sum:0,n:0};perM[t.memberId].sum+=Number(t.score);perM[t.memberId].n++;});
+    var withMin=Object.keys(perM).filter(function(id){return perM[id].n>=5;}).map(function(id){return {id:id,avg:perM[id].sum/perM[id].n};});
+    if(withMin.length){
+      var gen=withMin.slice().sort(function(a,b){return b.avg-a.avg;})[0];
+      var sev=withMin.slice().sort(function(a,b){return a.avg-b.avg;})[0];
+      items.push({ic:'&#128150;',t:'Coração Generoso',v:memberName(gen.id),d:'média '+gen.avg.toFixed(1)+' (5+ notas)'});
+      items.push({ic:'&#9876;',t:'Crítico Severo',v:memberName(sev.id),d:'média '+sev.avg.toFixed(1)+' (5+ notas)'});
+    }
+    var addCount={}; data.beers.forEach(function(b){if(b.createdBy)addCount[b.createdBy]=(addCount[b.createdBy]||0)+1;});
+    var addArr=Object.keys(addCount).map(function(id){return {id:id,n:addCount[id]};}).sort(function(a,b){return b.n-a.n;});
+    if(addArr.length) items.push({ic:'&#127867;',t:'Mestre da Adega',v:memberName(addArr[0].id),d:addArr[0].n+' cervejas cadastradas'});
+    var att={}; data.attendance.forEach(function(a){if(a.status==='sim')att[a.memberId]=(att[a.memberId]||0)+1;});
+    var attArr=Object.keys(att).map(function(id){return {id:id,n:att[id]};}).sort(function(a,b){return b.n-a.n;});
+    if(attArr.length) items.push({ic:'&#127956;',t:'Mais Assíduo',v:memberName(attArr[0].id),d:attArr[0].n+' presenças'});
+    if(items.length===0){el.innerHTML="<p class='empty'>Ainda sem feitos registrados.</p>";return;}
+    el.innerHTML=items.map(function(i){return "<div class='fame'><div class='ic'>"+i.ic+"</div><div><div class='ft'>"+i.t+"</div><div class='fv'>"+esc(i.v)+"</div><div class='fd'>"+i.d+"</div></div></div>";}).join('');
+  }
+
   function renderAdmin(){
     if(!me||me.role!=='admin') return;
     var counts={}; data.tastings.forEach(function(t){counts[t.memberId]=(counts[t.memberId]||0)+1;});
     var el=document.getElementById('admin-members');
-    if(data.members.length===0){ el.innerHTML="<p class='empty'>Nenhum confrade cadastrado.</p>"; return; }
+    if(data.members.length===0){el.innerHTML="<p class='empty'>Nenhum confrade cadastrado.</p>";return;}
     el.innerHTML=data.members.map(function(m){var c=counts[m.id]||0;
-      return "<div class='member'><div><div class='mn'>"+esc(m.name)+"</div>"+
-        "<div class='mc'>"+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
+      return "<div class='member'><div><div class='mn'>"+esc(m.name)+"</div><div class='mc'>"+c+" "+(c===1?'degustação':'degustações')+"</div></div>"+
         "<div class='acts'><button data-reset='"+m.id+"' data-name='"+esc(m.name)+"'>Redefinir senha</button>"+
-        "<button class='del' data-delm='"+m.id+"'>Remover</button></div></div>";
-    }).join('');
-    el.querySelectorAll('[data-reset]').forEach(function(b){
-      b.onclick=function(){ resetPassword(b.getAttribute('data-reset'), b.getAttribute('data-name')); };
-    });
-    el.querySelectorAll('[data-delm]').forEach(function(b){
-      b.onclick=function(){ if(confirm('Remover este confrade? As degustações dele também serão apagadas.'))
-        act({action:'deleteMember',payload:{id:b.getAttribute('data-delm')}}); };
-    });
+        "<button class='del' data-delm='"+m.id+"'>Remover</button></div></div>";}).join('');
+    el.querySelectorAll('[data-reset]').forEach(function(b){b.onclick=function(){resetPassword(b.getAttribute('data-reset'),b.getAttribute('data-name'));};});
+    el.querySelectorAll('[data-delm]').forEach(function(b){b.onclick=function(){if(confirm('Remover este confrade? As degustações dele também serão apagadas.'))act({action:'deleteMember',payload:{id:b.getAttribute('data-delm')}});};});
   }
-  function renderAll(){ renderStats();renderRanking();renderRegistrar();renderBeers();renderHistFilters();renderHistory();renderAdmin(); }
 
-  async function act(body){
-    try{ data=await api('POST',body);
-      if(me&&me.role==='member'&&!data.members.find(function(m){return m.id===me.id;})){ doLogout(); return; }
-      renderAll();
-    }catch(e){ toast(e.message); }
+  // ---------- Tesouraria ----------
+  function computeKpis(){
+    var rec=0,desp=0,ap=0,aPagar=0,aReceber=0;
+    fin.entries.forEach(function(e){var v=Number(e.amount)||0;
+      if(e.status==='pago'){ if(e.kind==='receita')rec+=v; else if(e.kind==='despesa')desp+=v; else if(e.kind==='aporte')ap+=v; }
+      else { if(e.kind==='despesa')aPagar+=v; else if(e.kind==='receita')aReceber+=v; }});
+    var estoque=0; fin.items.forEach(function(i){estoque+=(Number(i.qty)||0)*(Number(i.unitCost)||0);});
+    var lucroVendas=0; fin.moves.forEach(function(m){if(m.type==='venda'&&m.costValue!=null)lucroVendas+=((Number(m.unitValue)||0)-(Number(m.costValue)||0))*(Number(m.qty)||0);});
+    return {saldo:rec+ap-desp, rec:rec, desp:desp, ap:ap, aPagar:aPagar, aReceber:aReceber, estoque:estoque, resultado:rec-desp, lucroVendas:lucroVendas};
   }
+  function renderKpis(){
+    var k=computeKpis();var el=document.getElementById('kpis');
+    function card(lab,val,cls,big){return "<div class='kpi"+(big?' big':'')+"'><div class='lab'>"+lab+"</div><div class='val "+(cls||'')+"'>"+brl(val)+"</div></div>";}
+    el.innerHTML=card('Saldo em caixa',k.saldo,k.saldo<0?'neg':'pos',true)+
+      card('Receitas',k.rec,'pos')+card('Despesas',k.desp,'neg')+
+      card('Aportes',k.ap)+card('Resultado (rec − desp)',k.resultado,k.resultado<0?'neg':'pos')+
+      card('Contas a pagar',k.aPagar,k.aPagar>0?'neg':'')+card('Valor em estoque',k.estoque);
+  }
+  function renderPayables(){
+    var el=document.getElementById('payables');
+    var list=fin.entries.filter(function(e){return e.kind==='despesa'&&e.status==='pendente';})
+      .sort(function(a,b){return (a.dueDate||'9999').localeCompare(b.dueDate||'9999');});
+    if(list.length===0){el.innerHTML="<p class='empty'>Nenhuma conta em aberto. &#9737;</p>";return;}
+    el.innerHTML=list.map(function(e){
+      return "<div class='fin-row'><div class='ic desp'>−</div><div class='body'><div class='t1'>"+esc(e.description||e.category||'Despesa')+"</div>"+
+        "<div class='t2'>vence em "+fmtDateShort(e.dueDate)+(e.method?" &middot; "+esc(e.method):"")+"</div></div>"+
+        "<div class='amt neg'>"+brl(e.amount)+"</div></div>"+
+        "<div style='text-align:right;margin:-4px 0 8px'><button class='mini go' data-pay='"+e.id+"'>Marcar como pago</button></div>";
+    }).join('');
+    el.querySelectorAll('[data-pay]').forEach(function(b){b.onclick=function(){actFin({action:'finSetStatus',payload:{id:b.getAttribute('data-pay'),status:'pago'}});};});
+  }
+  function kindLabel(k){return {cerveja:'Cerveja',porcao:'Porção',insumo:'Insumo',outro:'Outro'}[k]||k;}
+  function renderStock(){
+    var el=document.getElementById('stock-list');
+    if(fin.items.length===0){el.innerHTML="<p class='empty'>Nenhum item cadastrado.</p>";return;}
+    el.innerHTML=fin.items.map(function(i){
+      var porc=i.kind==='porcao';
+      var margem=i.salePrice>0?Math.round((i.salePrice-i.unitCost)/i.salePrice*100):null;
+      return "<div class='st-row'><div class='st-head'><span class='st-name'>"+esc(i.name)+"</span><span class='st-kind'>"+kindLabel(i.kind)+"</span></div>"+
+        "<div class='st-meta'><span>Custo: <b>"+brl(i.unitCost)+"</b></span><span>Preço: <b>"+brl(i.salePrice)+"</b></span>"+
+        (porc?"":"<span>Estoque: <b>"+(Number(i.qty)||0)+"</b></span>")+
+        (margem!=null?"<span>Margem: <b>"+margem+"%</b></span>":"")+"</div>"+
+        "<div class='st-acts'>"+
+          (porc?"":"<button class='mini' data-buy='"+i.id+"'>Comprar</button>")+
+          "<button class='mini go' data-sell='"+i.id+"'>Vender</button>"+
+          "<button class='mini' data-edit-st='"+i.id+"'>Editar</button>"+
+          "<button class='mini del' data-del-st='"+i.id+"'>Remover</button>"+
+        "</div></div>";
+    }).join('');
+    el.querySelectorAll('[data-buy]').forEach(function(b){b.onclick=function(){openOp(b.getAttribute('data-buy'),'compra');};});
+    el.querySelectorAll('[data-sell]').forEach(function(b){b.onclick=function(){openOp(b.getAttribute('data-sell'),'venda');};});
+    el.querySelectorAll('[data-edit-st]').forEach(function(b){b.onclick=function(){startEditItem(b.getAttribute('data-edit-st'));};});
+    el.querySelectorAll('[data-del-st]').forEach(function(b){b.onclick=function(){if(confirm('Remover este item? O histórico de caixa é mantido, mas desvinculado.'))actFin({action:'stockDelete',payload:{id:b.getAttribute('data-del-st')}});};});
+  }
+  function renderPorcoes(){
+    var el=document.getElementById('porcoes-list');
+    var ps=fin.items.filter(function(i){return i.kind==='porcao';});
+    if(ps.length===0){el.innerHTML="<p class='empty'>Nenhuma porção cadastrada. Adicione um item do tipo “Porção”.</p>";return;}
+    el.innerHTML=ps.map(function(i){
+      var lucro=i.salePrice-i.unitCost; var margem=i.salePrice>0?Math.round(lucro/i.salePrice*100):0;
+      var vendidas=fin.moves.filter(function(m){return m.itemId===i.id&&m.type==='venda';}).reduce(function(s,m){return s+(Number(m.qty)||0);},0);
+      return "<div class='fin-row'><div class='ic ap'>&#127869;</div><div class='body'><div class='t1'>"+esc(i.name)+"</div>"+
+        "<div class='t2'>custo "+brl(i.unitCost)+" &middot; preço "+brl(i.salePrice)+" &middot; "+vendidas+" vendidas</div></div>"+
+        "<div class='amt "+(lucro<0?'neg':'pos')+"'>"+brl(lucro)+"<br><span style='font-size:11px'>"+margem+"% margem</span></div></div>";
+    }).join('');
+  }
+  function renderFinList(){
+    var fk=document.getElementById('fin-filt-kind').value, fs=document.getElementById('fin-filt-status').value;
+    var list=fin.entries.filter(function(e){return (!fk||e.kind===fk)&&(!fs||e.status===fs);});
+    var el=document.getElementById('fin-list');
+    if(list.length===0){el.innerHTML="<p class='empty'>Nenhum lançamento para este filtro.</p>";return;}
+    el.innerHTML=list.map(function(e){
+      var icCls=e.kind==='receita'?'rec':(e.kind==='despesa'?'desp':'ap');
+      var sign=e.kind==='despesa'?'−':'+'; var amtCls=e.kind==='despesa'?'neg':'pos';
+      var icCh=e.kind==='receita'?'+':(e.kind==='despesa'?'−':'&#9650;');
+      var sub=[fmtDateShort(e.date),e.category,e.method].filter(Boolean).join(' &middot; ');
+      var pill=e.status==='pendente'?"<span class='pill pend'>pendente</span>":"<span class='pill pago'>pago</span>";
+      var toggle=e.status==='pendente'?"<button class='mini go' data-st-pay='"+e.id+"'>quitar</button>":"<button class='mini' data-st-pend='"+e.id+"'>reabrir</button>";
+      var del=e.origin==='manual'?"<button class='mini del' data-fin-del='"+e.id+"'>excluir</button>":"";
+      return "<div class='fin-row'><div class='ic "+icCls+"'>"+icCh+"</div><div class='body'><div class='t1'>"+esc(e.description||e.category||kindLabel(e.kind))+" "+pill+"</div>"+
+        "<div class='t2'>"+sub+"</div></div><div class='amt "+amtCls+"'>"+sign+" "+brl(e.amount)+"</div></div>"+
+        "<div style='text-align:right;margin:-4px 0 8px;display:flex;gap:6px;justify-content:flex-end'>"+toggle+del+"</div>";
+    }).join('');
+    el.querySelectorAll('[data-st-pay]').forEach(function(b){b.onclick=function(){actFin({action:'finSetStatus',payload:{id:b.getAttribute('data-st-pay'),status:'pago'}});};});
+    el.querySelectorAll('[data-st-pend]').forEach(function(b){b.onclick=function(){actFin({action:'finSetStatus',payload:{id:b.getAttribute('data-st-pend'),status:'pendente'}});};});
+    el.querySelectorAll('[data-fin-del]').forEach(function(b){b.onclick=function(){if(confirm('Excluir este lançamento?'))actFin({action:'finDelete',payload:{id:b.getAttribute('data-fin-del')}});};});
+  }
+  function renderTesouraria(){if(!me||me.role!=='admin')return;renderKpis();renderPayables();renderStock();renderPorcoes();renderFinList();}
+  async function actFin(body){try{fin=await api('POST',body);renderTesouraria();}catch(e){toast(e.message);}}
+
+  // operação comprar/vender
+  var opState=null;
+  function openOp(itemId,mode){
+    var it=fin.items.find(function(x){return x.id===itemId;}); if(!it)return;
+    opState={itemId:itemId,mode:mode,item:it};
+    document.getElementById('op-title').textContent=(mode==='compra'?'Comprar — ':'Vender — ')+it.name;
+    var f=document.getElementById('op-fields');
+    var defVal=mode==='compra'?it.unitCost:it.salePrice;
+    f.innerHTML=
+      "<label>Quantidade</label><input type='text' id='op-qty' inputmode='decimal' placeholder='0'>"+
+      "<label>"+(mode==='compra'?'Custo unitário (R$)':'Preço unitário (R$)')+"</label><input type='text' id='op-val' inputmode='decimal' value='"+(defVal||'').toString().replace('.',',')+"'>"+
+      "<div class='row'><div><label>Forma de pagamento</label><select id='op-method'><option>Dinheiro</option><option>Pix</option><option>Cartão de débito</option><option>Cartão de crédito</option><option>Transferência</option><option>Outro</option></select></div>"+
+      "<div><label>Situação</label><select id='op-status'><option value='pago'>"+(mode==='compra'?'Pago':'Recebido')+"</option><option value='pendente'>"+(mode==='compra'?'A pagar':'A receber')+"</option></select></div></div>"+
+      "<div class='row'><div><label>Data</label><input type='date' id='op-date' value='"+todayStr()+"'></div>"+
+      (mode==='compra'?"<div id='op-due-wrap' style='display:none'><label>Vencimento</label><input type='date' id='op-due'></div>":"<div></div>")+"</div>";
+    var upd=function(){var q=parseNum(document.getElementById('op-qty').value)||0;var v=parseNum(document.getElementById('op-val').value)||0;
+      var tot=q*v;var s="Total: "+brl(tot);
+      if(mode==='venda'){var lucro=q*(v-(it.unitCost||0));s+=" &middot; lucro "+brl(lucro);}
+      document.getElementById('op-sum').innerHTML=s;};
+    f.querySelector('#op-qty').oninput=upd; f.querySelector('#op-val').oninput=upd;
+    if(mode==='compra'){var ss=f.querySelector('#op-status');ss.onchange=function(){document.getElementById('op-due-wrap').style.display=ss.value==='pendente'?'block':'none';};}
+    upd();
+    document.getElementById('op').style.display='flex';
+  }
+  function closeOp(){document.getElementById('op').style.display='none';opState=null;}
+  document.getElementById('op-cancel').onclick=closeOp;
+  document.getElementById('op').addEventListener('click',function(e){if(e.target===this)closeOp();});
+  document.getElementById('op-confirm').onclick=async function(){
+    if(!opState)return;var btn=this;var it=opState.item;
+    var qty=parseNum(document.getElementById('op-qty').value);
+    var val=parseNum(document.getElementById('op-val').value);
+    if(!(qty>0)){toast('Informe a quantidade.');return;}
+    var method=document.getElementById('op-method').value, status=document.getElementById('op-status').value, date=document.getElementById('op-date').value||null;
+    btn.disabled=true;
+    try{
+      if(opState.mode==='compra'){
+        var due=document.getElementById('op-due')?document.getElementById('op-due').value||null:null;
+        fin=await api('POST',{action:'stockBuy',payload:{itemId:it.id,qty:qty,unitCost:val,method:method,status:status,date:date,dueDate:due}});
+      } else {
+        fin=await api('POST',{action:'stockSell',payload:{itemId:it.id,qty:qty,unitPrice:val,method:method,status:status,date:date}});
+      }
+      closeOp();renderTesouraria();toast(opState&&opState.mode==='compra'?'Compra registrada.':'Venda registrada.');
+    }catch(e){toast(e.message);}finally{btn.disabled=false;}
+  };
+
+  // editar item de estoque
+  var editItemId=null;
+  function startEditItem(id){var it=fin.items.find(function(x){return x.id===id;});if(!it)return;editItemId=id;
+    document.getElementById('s-name').value=it.name;document.getElementById('s-kind').value=it.kind;
+    document.getElementById('s-cost').value=String(it.unitCost).replace('.',',');document.getElementById('s-price').value=String(it.salePrice).replace('.',',');
+    document.getElementById('s-qty').value='';document.getElementById('s-qty').parentElement.style.display='none';
+    document.getElementById('s-add').textContent='Salvar item';document.getElementById('s-cancel').style.display='inline-block';
+    window.scrollTo(0,document.getElementById('stock-list').offsetTop-300);
+  }
+  function resetItemForm(){editItemId=null;document.getElementById('s-name').value='';document.getElementById('s-cost').value='';
+    document.getElementById('s-price').value='';document.getElementById('s-qty').value='';document.getElementById('s-qty').parentElement.style.display='';
+    document.getElementById('s-add').textContent='Adicionar item';document.getElementById('s-cancel').style.display='none';}
+  document.getElementById('s-cancel').onclick=resetItemForm;
+
+  function renderAll(){renderStats();renderNextMeeting();renderRanking();renderRegistrar();renderEncontros();renderBeers();renderHistFilters();renderHistory();renderConquistas();renderAdmin();if(me&&me.role==='admin')renderTesouraria();}
+
+  async function act(body){try{data=await api('POST',body);
+    if(me&&me.role==='member'&&!data.members.find(function(m){return m.id===me.id;})){doLogout();return;}
+    renderAll();}catch(e){toast(e.message);}}
 
   // ---------- Tabs ----------
-  document.querySelectorAll('nav.tabs button').forEach(function(b){
-    b.onclick=function(){
-      document.querySelectorAll('nav.tabs button').forEach(function(x){x.classList.remove('active');});
-      document.querySelectorAll('.view').forEach(function(x){x.classList.remove('active');});
-      b.classList.add('active'); document.getElementById(b.getAttribute('data-tab')).classList.add('active');
-    };
-  });
+  document.querySelectorAll('nav.tabs button').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('nav.tabs button').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.view').forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active');document.getElementById(b.getAttribute('data-tab')).classList.add('active');};});
 
   // ---------- Slider ----------
   var slider=document.getElementById('f-score');
-  function updScore(){document.getElementById('f-score-val').textContent=Number(slider.value).toFixed(1);
-    document.getElementById('f-rings').innerHTML=rings(Number(slider.value));}
+  function updScore(){document.getElementById('f-score-val').textContent=Number(slider.value).toFixed(1);document.getElementById('f-rings').innerHTML=rings(Number(slider.value));}
   slider.oninput=updScore;
 
-  // ---------- Registrar degustação ----------
+  // ---------- Registrar ----------
   document.getElementById('f-save').onclick=async function(){
-    var btn=this; var beerId=document.getElementById('f-beer').value;
-    if(!beerId){ toast('Escolha (ou cadastre) uma cerveja primeiro.'); return; }
-    btn.disabled=true; btn.textContent='Inscrevendo…';
-    try{ data=await api('POST',{action:'addTasting',payload:{beerId:beerId,score:Number(slider.value),
-      notes:document.getElementById('f-notes').value.trim()}});
-      document.getElementById('f-notes').value=''; slider.value=7; updScore(); renderAll();
+    var btn=this;var beerId=document.getElementById('f-beer').value;
+    if(!beerId){toast('Escolha (ou cadastre) uma cerveja primeiro.');return;}
+    btn.disabled=true;btn.textContent='Inscrevendo…';
+    try{data=await api('POST',{action:'addTasting',payload:{beerId:beerId,encontroId:document.getElementById('f-encontro').value||null,
+      score:Number(slider.value),notes:document.getElementById('f-notes').value.trim()}});
+      document.getElementById('f-notes').value='';slider.value=7;updScore();renderAll();
       document.querySelector("nav.tabs button[data-tab='ranking']").click();
-    }catch(e){ toast(e.message); }
-    finally{ btn.disabled=false; btn.textContent='Inscrever no livro'; }
+    }catch(e){toast(e.message);}finally{btn.disabled=false;btn.textContent='Inscrever no livro';}
   };
 
-  // ---------- Imagem da cerveja ----------
+  // ---------- Imagem ----------
   document.getElementById('c-image').addEventListener('change',function(e){
-    var file=e.target.files&&e.target.files[0]; if(!file) return;
-    var reader=new FileReader();
-    reader.onload=function(){ var img=new Image();
-      img.onload=function(){ var max=360,w=img.width,h=img.height;
-        if(w>h&&w>max){h=Math.round(h*max/w);w=max;} else if(h>=w&&h>max){w=Math.round(w*max/h);h=max;}
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0,w,h);
-        pendingImage=c.toDataURL('image/jpeg',0.7);
-        document.getElementById('c-prev').innerHTML="<img src='"+pendingImage+"' alt=''>";
-      };
-      img.onerror=function(){ toast('Não consegui ler a imagem.'); };
-      img.src=reader.result;
-    };
+    var file=e.target.files&&e.target.files[0];if(!file)return;var reader=new FileReader();
+    reader.onload=function(){var img=new Image();img.onload=function(){var max=360,w=img.width,h=img.height;
+      if(w>h&&w>max){h=Math.round(h*max/w);w=max;}else if(h>=w&&h>max){w=Math.round(w*max/h);h=max;}
+      var c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+      pendingImage=c.toDataURL('image/jpeg',0.7);document.getElementById('c-prev').innerHTML="<img src='"+pendingImage+"' alt=''>";};
+      img.onerror=function(){toast('Não consegui ler a imagem.');};img.src=reader.result;};
     reader.readAsDataURL(file);
   });
   document.getElementById('c-add').onclick=async function(){
-    var btn=this; var name=document.getElementById('c-name').value.trim();
-    if(!name){ toast('Dê um nome à cerveja.'); return; }
-    btn.disabled=true; btn.textContent='Adicionando…';
-    try{ data=await api('POST',{action:'addBeer',payload:{name:name,
-      brewery:document.getElementById('c-brewery').value.trim(),
-      style:document.getElementById('c-style').value.trim(), image:pendingImage }});
-      document.getElementById('c-name').value=''; document.getElementById('c-brewery').value='';
-      document.getElementById('c-style').value=''; document.getElementById('c-image').value='';
-      document.getElementById('c-prev').innerHTML='&#127866;'; pendingImage=null;
-      renderAll(); toast('Cerveja adicionada ao catálogo.');
-    }catch(e){ toast(e.message); }
-    finally{ btn.disabled=false; btn.textContent='Adicionar ao catálogo'; }
+    var btn=this;var name=document.getElementById('c-name').value.trim();if(!name){toast('Dê um nome à cerveja.');return;}
+    btn.disabled=true;btn.textContent='Adicionando…';
+    try{data=await api('POST',{action:'addBeer',payload:{name:name,brewery:document.getElementById('c-brewery').value.trim(),
+      style:document.getElementById('c-style').value.trim(),image:pendingImage}});
+      document.getElementById('c-name').value='';document.getElementById('c-brewery').value='';document.getElementById('c-style').value='';
+      document.getElementById('c-image').value='';document.getElementById('c-prev').innerHTML='&#127866;';pendingImage=null;
+      renderAll();toast('Cerveja adicionada ao catálogo.');
+    }catch(e){toast(e.message);}finally{btn.disabled=false;btn.textContent='Adicionar ao catálogo';}
+  };
+
+  // ---------- Encontros (admin) ----------
+  function startEditEncontro(id){var e=encById(id);if(!e)return;editEncId=id;
+    document.getElementById('e-title').value=e.title||'';document.getElementById('e-date').value=e.date||'';document.getElementById('e-loc').value=e.location||'';
+    document.getElementById('enc-form-title').textContent='Editar encontro';document.getElementById('e-save').textContent='Salvar alterações';
+    document.getElementById('e-cancel').style.display='inline-block';
+    document.querySelector("nav.tabs button[data-tab='encontros']").click();window.scrollTo(0,0);
+  }
+  function resetEncForm(){editEncId=null;document.getElementById('e-title').value='';document.getElementById('e-date').value='';document.getElementById('e-loc').value='';
+    document.getElementById('enc-form-title').textContent='Agendar encontro';document.getElementById('e-save').textContent='Agendar encontro';document.getElementById('e-cancel').style.display='none';}
+  document.getElementById('e-cancel').onclick=resetEncForm;
+  document.getElementById('e-save').onclick=async function(){
+    var btn=this;var title=document.getElementById('e-title').value.trim();
+    if(!title){toast('Dê um título ao encontro.');return;}
+    var payload={title:title,date:document.getElementById('e-date').value||null,location:document.getElementById('e-loc').value.trim()};
+    btn.disabled=true;
+    try{ if(editEncId){payload.id=editEncId;data=await api('POST',{action:'updateEncontro',payload:payload});}
+      else data=await api('POST',{action:'addEncontro',payload:payload});
+      resetEncForm();renderAll();toast('Encontro salvo.');
+    }catch(e){toast(e.message);}finally{btn.disabled=false;}
   };
 
   // ---------- Admin: cadastrar / senha ----------
-  function genPass(){ var cs='abcdefghjkmnpqrstuvwxyz23456789'; var s='';
-    for(var i=0;i<8;i++){ s+=cs[Math.floor(Math.random()*cs.length)]; } return s; }
-  document.getElementById('a-gen').onclick=function(){ document.getElementById('a-pass').value=genPass(); };
-
-  function accessBox(name, pw){
-    var msg="Sociedade do Malte — seu acesso\nConfrade: "+name+"\nSenha: "+pw+"\nEntre em: "+location.origin;
+  function genPass(){var cs='abcdefghjkmnpqrstuvwxyz23456789',s='';for(var i=0;i<8;i++)s+=cs[Math.floor(Math.random()*cs.length)];return s;}
+  document.getElementById('a-gen').onclick=function(){document.getElementById('a-pass').value=genPass();};
+  function accessBox(name,pw){var msg="Sociedade do Malte — seu acesso\nConfrade: "+name+"\nSenha: "+pw+"\nEntre em: "+location.origin;
     var wa="https://wa.me/?text="+encodeURIComponent(msg);
-    return "<div class='pwbox'><div class='t'>Acesso de "+esc(name)+"</div>"+
-      "<div class='pw'>"+esc(pw)+"</div>"+
+    return "<div class='pwbox'><div class='t'>Acesso de "+esc(name)+"</div><div class='pw'>"+esc(pw)+"</div>"+
       "<div class='acts'><button class='btn sm' data-copy=\""+esc(pw)+"\">Copiar senha</button>"+
       "<a class='btn sm green' style='text-decoration:none;display:inline-block' href='"+wa+"' target='_blank' rel='noopener'>Enviar pelo WhatsApp</a></div>"+
-      "<small>Anote agora: por segurança, a senha não fica visível depois. Envie ao confrade.</small></div>";
-  }
-  function wireCopy(container){
-    container.querySelectorAll('[data-copy]').forEach(function(b){
-      b.onclick=function(){ var v=b.getAttribute('data-copy');
-        if(navigator.clipboard){ navigator.clipboard.writeText(v).then(function(){toast('Senha copiada.');},function(){toast(v);}); }
-        else toast(v);
-      };
-    });
-  }
+      "<small>Anote agora: a senha não fica visível depois. Envie ao confrade.</small></div>";}
+  function wireCopy(c){c.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){var v=b.getAttribute('data-copy');
+    if(navigator.clipboard)navigator.clipboard.writeText(v).then(function(){toast('Senha copiada.');},function(){toast(v);});else toast(v);};});}
   document.getElementById('a-add').onclick=async function(){
-    var btn=this; var name=document.getElementById('a-name').value.trim();
-    var pw=document.getElementById('a-pass').value.trim();
-    if(!name){ toast('Informe o nome.'); return; }
-    if(pw.length<4){ toast('A senha precisa de ao menos 4 caracteres (use “gerar”).'); return; }
-    btn.disabled=true; btn.textContent='Cadastrando…';
-    try{ data=await api('POST',{action:'addMember',payload:{name:name,password:pw}});
-      var box=document.getElementById('a-result'); box.innerHTML=accessBox(name,pw); wireCopy(box);
-      document.getElementById('a-name').value=''; document.getElementById('a-pass').value='';
-      renderAll();
-    }catch(e){ toast(e.message); }
-    finally{ btn.disabled=false; btn.textContent='Cadastrar confrade'; }
+    var btn=this;var name=document.getElementById('a-name').value.trim();var pw=document.getElementById('a-pass').value.trim();
+    if(!name){toast('Informe o nome.');return;}if(pw.length<4){toast('A senha precisa de ao menos 4 caracteres (use “gerar”).');return;}
+    btn.disabled=true;btn.textContent='Cadastrando…';
+    try{data=await api('POST',{action:'addMember',payload:{name:name,password:pw}});
+      var box=document.getElementById('a-result');box.innerHTML=accessBox(name,pw);wireCopy(box);
+      document.getElementById('a-name').value='';document.getElementById('a-pass').value='';renderAll();
+    }catch(e){toast(e.message);}finally{btn.disabled=false;btn.textContent='Cadastrar confrade';}
   };
-  async function resetPassword(id, name){
-    var pw=prompt('Nova senha para '+name+' (deixe em branco para gerar uma):');
-    if(pw===null) return;
-    pw=pw.trim(); if(!pw) pw=genPass();
-    if(pw.length<4){ toast('A senha precisa de ao menos 4 caracteres.'); return; }
-    try{ data=await api('POST',{action:'setPassword',payload:{id:id,password:pw}});
-      var box=document.getElementById('a-result'); box.innerHTML=accessBox(name,pw); wireCopy(box);
-      renderAll(); toast('Senha redefinida.');
-    }catch(e){ toast(e.message); }
-  }
+  async function resetPassword(id,name){var pw=prompt('Nova senha para '+name+' (deixe em branco para gerar uma):');if(pw===null)return;
+    pw=pw.trim();if(!pw)pw=genPass();if(pw.length<4){toast('A senha precisa de ao menos 4 caracteres.');return;}
+    try{data=await api('POST',{action:'setPassword',payload:{id:id,password:pw}});
+      var box=document.getElementById('a-result');box.innerHTML=accessBox(name,pw);wireCopy(box);renderAll();toast('Senha redefinida.');
+    }catch(e){toast(e.message);}}
 
   document.getElementById('filt-membro').onchange=renderHistory;
   document.getElementById('filt-beer').onchange=renderHistory;
+  document.getElementById('filt-encontro').onchange=renderHistory;
+
+  // ---------- Tesouraria: handlers ----------
+  document.getElementById('t-status').onchange=function(){document.getElementById('t-due-wrap').style.display=this.value==='pendente'?'block':'none';};
+  document.getElementById('fin-filt-kind').onchange=renderFinList;
+  document.getElementById('fin-filt-status').onchange=renderFinList;
+  document.getElementById('t-add').onclick=async function(){
+    var btn=this;var amount=parseNum(document.getElementById('t-amount').value);
+    if(!(amount>0)){toast('Informe um valor válido.');return;}
+    var status=document.getElementById('t-status').value;
+    btn.disabled=true;
+    try{fin=await api('POST',{action:'finAdd',payload:{kind:document.getElementById('t-kind').value,amount:amount,
+      category:document.getElementById('t-cat').value.trim(),description:document.getElementById('t-desc').value.trim(),
+      method:document.getElementById('t-method').value,status:status,date:document.getElementById('t-date').value||null,
+      dueDate:status==='pendente'?(document.getElementById('t-due').value||null):null}});
+      document.getElementById('t-amount').value='';document.getElementById('t-cat').value='';document.getElementById('t-desc').value='';
+      renderTesouraria();toast('Lançamento registrado.');
+    }catch(e){toast(e.message);}finally{btn.disabled=false;}
+  };
+  document.getElementById('s-add').onclick=async function(){
+    var btn=this;var name=document.getElementById('s-name').value.trim();if(!name){toast('Dê um nome ao item.');return;}
+    var payload={name:name,kind:document.getElementById('s-kind').value,
+      unitCost:parseNum(document.getElementById('s-cost').value)||0,salePrice:parseNum(document.getElementById('s-price').value)||0};
+    btn.disabled=true;
+    try{ if(editItemId){payload.id=editItemId;fin=await api('POST',{action:'stockUpdate',payload:payload});}
+      else {payload.qty=parseNum(document.getElementById('s-qty').value)||0;fin=await api('POST',{action:'stockAdd',payload:payload});}
+      resetItemForm();renderTesouraria();toast('Item salvo.');
+    }catch(e){toast(e.message);}finally{btn.disabled=false;}
+  };
 
   // ---------- Init ----------
   updScore();
-  (async function(){
-    token=ls.get('malte_token'); me=ls.get('malte_me');
-    if(token&&me){ try{ await refresh(); enterApp(); return; }catch(e){ doLogout(); } }
-    showGate();
-  })();
+  var _today=todayStr();var _td=document.getElementById('t-date');if(_td)_td.value=_today;
+  (async function(){token=ls.get('malte_token');me=ls.get('malte_me');
+    if(token&&me){try{await refresh();enterApp();return;}catch(e){doLogout();}}
+    showGate();})();
 })();
 </script>
 </body>
